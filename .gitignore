@@ -3,7 +3,8 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-
+# Root
+EBook.API/Data/StoreDBContext.cs
 # User-specific files
 *.rsuser
 *.suo
