@@ -13,7 +13,6 @@ namespace EBook.API.Data
         protected override void OnConfiguring(DbContextOptionsBuilder buillder)
         {
             base.OnConfiguring(buillder);
-            buillder.UseSqlServer("Server=MOSHE-DELL-PC;Database=EBookDB;Trusted_Connection = True;TrustServerCertificate= True;");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
