@@ -19,10 +19,6 @@ namespace EBook.API.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-
-
-
-
             base.OnModelCreating(builder);
             builder.ApplyConfiguration(new UserConfigurations());
             builder.ApplyConfiguration(new ItemConfigurations());
