@@ -6,6 +6,8 @@ namespace EBook.API.Data
 {
     public class StoreDBContext: DbContext
     {
+
+
         public DbSet<User>Users { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<Sale> Sales { get; set; }
@@ -17,6 +19,10 @@ namespace EBook.API.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+
+
+
+
             base.OnModelCreating(builder);
             builder.ApplyConfiguration(new UserConfigurations());
             builder.ApplyConfiguration(new ItemConfigurations());
