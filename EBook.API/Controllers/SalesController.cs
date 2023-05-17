@@ -21,7 +21,7 @@ namespace EBook.API.Controllers
             _context = context;
         }
 
-        // GET: api/Sales
+        // GET= api/Sales
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Sale>>> GetSales()
         {
@@ -32,7 +32,7 @@ namespace EBook.API.Controllers
             return await _context.Sales.ToListAsync();
         }
 
-        // GET: api/Sales/5
+        // GET= api/Sales/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Sale>> GetSale(int id)
         {
@@ -50,8 +50,8 @@ namespace EBook.API.Controllers
             return sale;
         }
 
-        // PUT: api/Sales/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // PUT= api/Sales/5
+        // To protect from overposting attacks, see https=//go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutSale(int id, Sale sale)
         {
@@ -81,8 +81,8 @@ namespace EBook.API.Controllers
             return NoContent();
         }
 
-        // POST: api/Sales
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // POST= api/Sales
+        // To protect from overposting attacks, see https=//go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Sale>> PostSale(Sale sale)
         {
@@ -96,7 +96,7 @@ namespace EBook.API.Controllers
             return CreatedAtAction("GetSale", new { id = sale.Id }, sale);
         }
 
-        // DELETE: api/Sales/5
+        // DELETE= api/Sales/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSale(int id)
         {

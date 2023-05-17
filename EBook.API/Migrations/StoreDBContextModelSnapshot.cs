@@ -30,6 +30,14 @@ namespace EBook.API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("ImageAlt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -45,14 +53,82 @@ namespace EBook.API.Migrations
                         new
                         {
                             Id = 1,
+                            ImageAlt = "javascript-book",
+                            ImageUrl = "../../../../assets//Images/store-images/javascript-book.jpg",
                             Name = "JavaScript",
                             Price = 99.900000000000006
                         },
                         new
                         {
                             Id = 2,
-                            Name = "ASP.NET",
+                            ImageAlt = "entity-framework-book",
+                            ImageUrl = "../../../../assets//Images/store-images/entity-framework-book.jpg",
+                            Name = "Entity Framework",
+                            Price = 79.900000000000006
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ImageAlt = "jQuery",
+                            ImageUrl = "../../../../assets//Images/store-images/jquery-book.jpg",
+                            Name = "jQuery",
+                            Price = 59.899999999999999
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ImageAlt = "Powershell",
+                            ImageUrl = "../../../../assets//Images/store-images/powershell-book.jpg",
+                            Name = "Powershell",
+                            Price = 49.899999999999999
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ImageAlt = "ReactJS",
+                            ImageUrl = "../../../../assets//Images/store-images/reactjs-book.jpg",
+                            Name = "ReactJS",
+                            Price = 299.89999999999998
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ImageAlt = "Git",
+                            ImageUrl = "../../../../assets//Images/store-images/git-book.jpg",
+                            Name = "Git",
                             Price = 99.900000000000006
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ImageAlt = "Ruby on Rails",
+                            ImageUrl = "../../../../assets//Images/store-images/ruby-on-rails-book.jpg",
+                            Name = "Ruby on Rails",
+                            Price = 99.900000000000006
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ImageAlt = "Oracle Database",
+                            ImageUrl = "../../../../assets//Images/store-images/oracle-database-book.jpg",
+                            Name = "Oracle Database",
+                            Price = 99.900000000000006
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ImageAlt = "image-3",
+                            ImageUrl = "../../../../assets//Images/store-images/ios-developer-book.jpg",
+                            Name = "IOS Developer ",
+                            Price = 149.90000000000001
+                        },
+                        new
+                        {
+                            Id = 10,
+                            ImageAlt = "Visual Basic .NET",
+                            ImageUrl = "../../../../assets//Images/store-images/visual-basic-dotnet-book.jpg",
+                            Name = "Visual Basic .NET",
+                            Price = 49.899999999999999
                         });
                 });
 

@@ -4,30 +4,38 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EBook.API.Data.Configurations
 {
-    public class ItemConfigurations : IEntityTypeConfiguration<Item>
+    public class UserConfigurations : IEntityTypeConfiguration<User>
     {
-        public void Configure(EntityTypeBuilder<Item> builder)
+        public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.HasData(
-                new Item
+                new User
                 {
-                   Id = 1,
-                   Name = "JavaScript",
-                   Price = 99.90
-
+                    Id = 1,
+                    Name = "User 1",
+                    Email = "user1@gmail.com",
+                    Password = "User1234",
+                    AuthLevel = AuthLevel.User
 
                 },
-                  new Item
-                  {
-                      Id = 2,
-                      Name = "ASP.NET",
-                      Price = 99.90
+                new User
+                {
+                    Id = 2,
+                    Name = "User 2",
+                    Email = "user2@gmail.com",
+                    Password = "User4321",
+                    AuthLevel = AuthLevel.User
 
+                },
+                  new User
+                  {
+                      Id = 3,
+                      Name = "User 3",
+                      Email = "user3@gmail.com",
+                      Password = "User35678",
+                      AuthLevel = AuthLevel.User
 
                   }
-
-
-
 
                 );
         }

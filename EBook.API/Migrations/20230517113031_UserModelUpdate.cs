@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EBook.API.Migrations
 {
     /// <inheritdoc />
-    public partial class myMig : Migration
+    public partial class UserModelUpdate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,7 +20,9 @@ namespace EBook.API.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<double>(type: "float", nullable: false)
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageAlt = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -69,6 +71,23 @@ namespace EBook.API.Migrations
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Items",
+                columns: new[] { "Id", "ImageAlt", "ImageUrl", "Name", "Price" },
+                values: new object[,]
+                {
+                    { 1, "javascript-book", "../../../../assets//Images/store-images/javascript-book.jpg", "JavaScript", 99.900000000000006 },
+                    { 2, "entity-framework-book", "../../../../assets//Images/store-images/entity-framework-book.jpg", "Entity Framework", 79.900000000000006 },
+                    { 3, "jQuery", "../../../../assets//Images/store-images/jquery-book.jpg", "jQuery", 59.899999999999999 },
+                    { 4, "Powershell", "../../../../assets//Images/store-images/powershell-book.jpg", "Powershell", 49.899999999999999 },
+                    { 5, "ReactJS", "../../../../assets//Images/store-images/reactjs-book.jpg", "ReactJS", 299.89999999999998 },
+                    { 6, "Git", "../../../../assets//Images/store-images/git-book.jpg", "Git", 99.900000000000006 },
+                    { 7, "Ruby on Rails", "../../../../assets//Images/store-images/ruby-on-rails-book.jpg", "Ruby on Rails", 99.900000000000006 },
+                    { 8, "Oracle Database", "../../../../assets//Images/store-images/oracle-database-book.jpg", "Oracle Database", 99.900000000000006 },
+                    { 9, "image-3", "../../../../assets//Images/store-images/ios-developer-book.jpg", "IOS Developer ", 149.90000000000001 },
+                    { 10, "Visual Basic .NET", "../../../../assets//Images/store-images/visual-basic-dotnet-book.jpg", "Visual Basic .NET", 49.899999999999999 }
                 });
 
             migrationBuilder.InsertData(

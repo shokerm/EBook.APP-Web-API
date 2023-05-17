@@ -21,7 +21,7 @@ namespace EBook.API.Controllers
             _context = context;
         }
 
-        // GET: api/Items
+        // GET= api/Items
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Item>>> GetItems()
         {
@@ -32,7 +32,7 @@ namespace EBook.API.Controllers
             return await _context.Items.ToListAsync();
         }
 
-        // GET: api/Items/5
+        // GET= api/Items/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Item>> GetItem(int id)
         {
@@ -50,8 +50,8 @@ namespace EBook.API.Controllers
             return item;
         }
 
-        // PUT: api/Items/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // PUT= api/Items/5
+        // To protect from overposting attacks, see https=//go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutItem(int id, Item item)
         {
@@ -81,8 +81,8 @@ namespace EBook.API.Controllers
             return NoContent();
         }
 
-        // POST: api/Items
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // POST= api/Items
+        // To protect from overposting attacks, see https=//go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Item>> PostItem(Item item)
         {
@@ -96,7 +96,7 @@ namespace EBook.API.Controllers
             return CreatedAtAction("GetItem", new { id = item.Id }, item);
         }
 
-        // DELETE: api/Items/5
+        // DELETE= api/Items/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteItem(int id)
         {

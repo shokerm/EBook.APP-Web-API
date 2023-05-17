@@ -5,8 +5,13 @@
 
         public int Id { get; set; }
         public String Name { get; set; }
-
         public double Price { get; set; }
+        public String ImageUrl { get; set; }
+        public String ImageAlt { get; set; }
+
+
+
+       
 
     }
 }
