@@ -4,7 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # Root
-EBook.API/Program.cs
+EBook.API/Data/StoreDBContext.cs
 
 
 *.rsuser
