@@ -87,12 +87,12 @@ namespace EBook.API.Controllers
         public async Task<ActionResult<Sale>> PostSale(Sale sale)
         {
           if (_context.Sales == null)
-          {
+          { 
               return Problem("Entity set 'StoreDBContext.Sales'  is null.");
-          }
+          } 
             _context.Sales.Add(sale);
             await _context.SaveChangesAsync();
-
+            
             return CreatedAtAction("GetSale", new { id = sale.Id }, sale);
         }
 

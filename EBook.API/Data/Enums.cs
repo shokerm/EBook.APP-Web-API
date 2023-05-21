@@ -1,6 +1,6 @@
 ﻿namespace EBook.API.Data
 {
-    public enum AuthLevel
+    public enum AuthLevels
     {
         Visitor = 0,
         User = 1,
