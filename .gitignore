@@ -361,4 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+EBook.API/appsettings.json
 EBook.API/Data/StoreDBContext.cs
