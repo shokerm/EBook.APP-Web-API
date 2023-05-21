@@ -7,14 +7,15 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 
+
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddCors(x => x.AddPolicy(MyAllowSpecificOrigins,
+    c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
 
-//builder.Services.AddDbContextFactory<StoreDBContext>(options =>
-//{
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString"));
-//});
+// Add services to the container.
 
 builder.Services.AddDbContext<StoreDBContext>();
 
@@ -44,7 +45,18 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+
+
+
+
 builder.Services.AddControllers();
+
+
+
+builder.Services.AddDistributedMemoryCache();
+
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -87,6 +99,8 @@ app.UseSwaggerUI();
 
 
 app.UseHttpsRedirection();
+app.UseCors(MyAllowSpecificOrigins);
+
 
 app.UseAuthorization();
 
