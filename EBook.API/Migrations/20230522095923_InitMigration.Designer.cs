@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EBook.API.Migrations
 {
     [DbContext(typeof(StoreDBContext))]
-    [Migration("20230521133202_InitMigration")]
+    [Migration("20230522095923_InitMigration")]
     partial class InitMigration
     {
         /// <inheritdoc />
@@ -41,12 +41,19 @@ namespace EBook.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("LikeToggleStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -58,80 +65,100 @@ namespace EBook.API.Migrations
                             Id = 1,
                             ImageAlt = "javascript-book",
                             ImageUrl = "../../../../assets//Images/store-images/javascript-book.jpg",
+                            LikeToggleStatus = "favorite_border",
                             Name = "JavaScript",
-                            Price = 99.900000000000006
+                            Price = 99.900000000000006,
+                            Quantity = 1
                         },
                         new
                         {
                             Id = 2,
                             ImageAlt = "entity-framework-book",
                             ImageUrl = "../../../../assets//Images/store-images/entity-framework-book.jpg",
+                            LikeToggleStatus = "favorite_border",
                             Name = "Entity Framework",
-                            Price = 79.900000000000006
+                            Price = 79.900000000000006,
+                            Quantity = 1
                         },
                         new
                         {
                             Id = 3,
                             ImageAlt = "jQuery",
                             ImageUrl = "../../../../assets//Images/store-images/jquery-book.jpg",
+                            LikeToggleStatus = "favorite_border",
                             Name = "jQuery",
-                            Price = 59.899999999999999
+                            Price = 59.899999999999999,
+                            Quantity = 1
                         },
                         new
                         {
                             Id = 4,
                             ImageAlt = "Powershell",
                             ImageUrl = "../../../../assets//Images/store-images/powershell-book.jpg",
+                            LikeToggleStatus = "favorite_border",
                             Name = "Powershell",
-                            Price = 49.899999999999999
+                            Price = 49.899999999999999,
+                            Quantity = 1
                         },
                         new
                         {
                             Id = 5,
                             ImageAlt = "ReactJS",
                             ImageUrl = "../../../../assets//Images/store-images/reactjs-book.jpg",
+                            LikeToggleStatus = "favorite_border",
                             Name = "ReactJS",
-                            Price = 299.89999999999998
+                            Price = 299.89999999999998,
+                            Quantity = 1
                         },
                         new
                         {
                             Id = 6,
                             ImageAlt = "Git",
                             ImageUrl = "../../../../assets//Images/store-images/git-book.jpg",
+                            LikeToggleStatus = "favorite_border",
                             Name = "Git",
-                            Price = 99.900000000000006
+                            Price = 99.900000000000006,
+                            Quantity = 1
                         },
                         new
                         {
                             Id = 7,
                             ImageAlt = "Ruby on Rails",
                             ImageUrl = "../../../../assets//Images/store-images/ruby-on-rails-book.jpg",
+                            LikeToggleStatus = "favorite_border",
                             Name = "Ruby on Rails",
-                            Price = 99.900000000000006
+                            Price = 99.900000000000006,
+                            Quantity = 1
                         },
                         new
                         {
                             Id = 8,
                             ImageAlt = "Oracle Database",
                             ImageUrl = "../../../../assets//Images/store-images/oracle-database-book.jpg",
+                            LikeToggleStatus = "favorite_border",
                             Name = "Oracle Database",
-                            Price = 99.900000000000006
+                            Price = 99.900000000000006,
+                            Quantity = 1
                         },
                         new
                         {
                             Id = 9,
                             ImageAlt = "image-3",
                             ImageUrl = "../../../../assets//Images/store-images/ios-developer-book.jpg",
+                            LikeToggleStatus = "favorite_border",
                             Name = "IOS Developer ",
-                            Price = 149.90000000000001
+                            Price = 149.90000000000001,
+                            Quantity = 1
                         },
                         new
                         {
                             Id = 10,
                             ImageAlt = "Visual Basic .NET",
                             ImageUrl = "../../../../assets//Images/store-images/visual-basic-dotnet-book.jpg",
+                            LikeToggleStatus = "favorite_border",
                             Name = "Visual Basic .NET",
-                            Price = 49.899999999999999
+                            Price = 49.899999999999999,
+                            Quantity = 1
                         });
                 });
 
@@ -237,16 +264,16 @@ namespace EBook.API.Migrations
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
                             AuthLevel = 2,
-                            ConcurrencyStamp = "7aa3ba85-38d3-4671-bce7-5c41f31d8cc4",
+                            ConcurrencyStamp = "f2235b44-2db6-4721-9afb-06b774f9f181",
                             Email = "admin@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
                             Password = "123!Qaz123",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMWKtEIWZrezx0tq51NmGQJUXC2qViYMlfb+w+x+X3pRK6QYz80wifBX+VUTA96rVw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJmAN0vh7yyUoJd3ZtoIElMVdMl4UjgxHGrarkeJxE2ddukOfKxiGp++G+7m/IP/Lw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a6b9b96e-e9c6-4c45-97da-5c7e247fa5bf",
+                            SecurityStamp = "3c7defb4-e610-463d-bae7-1e7171076255",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         },
@@ -255,16 +282,16 @@ namespace EBook.API.Migrations
                             Id = "ddc1ddb9-2495-40d6-b278-633bc6ca29c6",
                             AccessFailedCount = 0,
                             AuthLevel = 1,
-                            ConcurrencyStamp = "b66fb91a-c4b8-4e8f-99ce-2ce91a294a85",
+                            ConcurrencyStamp = "9f290f65-2188-4629-b2d1-8b33704f8878",
                             Email = "yoni@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "YONI@EMAIL.COM",
                             NormalizedUserName = "YONI",
                             Password = "123!Qaz123",
-                            PasswordHash = "AQAAAAEAACcQAAAAEA2M2r7/82PjoQPyltkPrsX5neEq0KcrC46gkkUs29g4n/oeXLVpruZeJXFcwQIcZA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGlw1dd5/7KSPtz1q+wEel+lMnLCsyKqytwhvXOX05LxyfwcvOg/V/q13S+0chcWmg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d74c8318-5186-4fd4-ab31-8c337fd53e36",
+                            SecurityStamp = "5acded61-00ce-432f-8f6f-be75b316358c",
                             TwoFactorEnabled = false,
                             UserName = "Yoni"
                         });
@@ -300,21 +327,21 @@ namespace EBook.API.Migrations
                         new
                         {
                             Id = "c32f66ed-c960-4cb7-a468-90662e1fb37a",
-                            ConcurrencyStamp = "01a8e885-c62f-4444-997f-18fa3f6c8806",
+                            ConcurrencyStamp = "76883f51-49c1-480c-b0eb-7c75625136c3",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "ddc1ddb9-2495-40d6-b278-633bc6ca29c6",
-                            ConcurrencyStamp = "901c0354-7ea6-426a-8791-7d1d0bc20649",
+                            ConcurrencyStamp = "e6454949-5988-43eb-aa36-796da98748e5",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29",
-                            ConcurrencyStamp = "3edf24fb-5529-414c-9a3a-d1e10e040523",
+                            ConcurrencyStamp = "200a96da-9e02-45dc-8fd1-c31891244e1c",
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         });

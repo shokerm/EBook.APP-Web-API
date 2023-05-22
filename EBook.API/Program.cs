@@ -12,8 +12,15 @@ var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
+//builder.Services.AddCors(x => x.AddPolicy(MyAllowSpecificOrigins,
+//    c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
+
+//allow specific origins
 builder.Services.AddCors(x => x.AddPolicy(MyAllowSpecificOrigins,
-    c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
+    c => c.AllowAnyHeader().AllowAnyMethod().SetIsOriginAllowedToAllowWildcardSubdomains().
+    WithOrigins("http://localhost:4200")
+    ));
+
 
 // Add services to the container.
 

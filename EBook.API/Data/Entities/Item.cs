@@ -8,14 +8,20 @@
         public double Price { get; set; }
         public String ImageUrl { get; set; }
         public String ImageAlt { get; set; }
+        public int Quantity { get; set; }
+        public String LikeToggleStatus { get; set; }
 
-        public Item(int Id, string Name, double Price, string ImageUrl, string ImageAlt)
+
+
+        public Item(int Id, string Name, double Price, string ImageUrl, string ImageAlt,int Quantity, string LikeToggleStatus)
         {
             this.Id = Id;
             this.Name = Name;
             this.Price = Price;
             this.ImageUrl = ImageUrl;
             this.ImageAlt = ImageAlt;
+            this.Quantity = Quantity;
+            this.LikeToggleStatus = LikeToggleStatus;
         }
     }
 }
