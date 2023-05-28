@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using StoreApp.API.Data.Configurations;
 using System.Text;
 
 
@@ -12,8 +13,10 @@ var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
-//builder.Services.AddCors(x => x.AddPolicy(MyAllowSpecificOrigins,
-//    c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
+builder.Services.AddDbContextFactory<StoreDBContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
 //allow specific origins
 builder.Services.AddCors(x => x.AddPolicy(MyAllowSpecificOrigins,
@@ -32,6 +35,12 @@ builder.Services.AddIdentityCore<User>()
     .AddEntityFrameworkStores<StoreDBContext>()
     .AddDefaultTokenProviders();
 
+
+// AutoMapper
+builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
+
+
+// Jwt Authentication
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme; // "Bearer"
@@ -45,10 +54,10 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,
         ValidateLifetime = true,
         ClockSkew = TimeSpan.Zero,
-        ValidIssuer = "StoreAPI",
-        ValidAudience = "StoreAPIClient",
+        ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
+        ValidAudience = builder.Configuration["JwtSettings:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey
-            (Encoding.UTF8.GetBytes("tyuituwegrbkjerheuwiyr"!))
+            (Encoding.UTF8.GetBytes(builder.Configuration["Keys:Key"]))
     };
 });
 
@@ -108,6 +117,7 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseCors(MyAllowSpecificOrigins);
 
+app.UseAuthentication();
 
 app.UseAuthorization();
 

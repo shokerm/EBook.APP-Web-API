@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EBook.API.Migrations
 {
     [DbContext(typeof(StoreDBContext))]
-    [Migration("20230522095923_InitMigration")]
+    [Migration("20230528114957_InitMigration")]
     partial class InitMigration
     {
         /// <inheritdoc />
@@ -223,10 +223,6 @@ namespace EBook.API.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
@@ -264,16 +260,15 @@ namespace EBook.API.Migrations
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
                             AuthLevel = 2,
-                            ConcurrencyStamp = "f2235b44-2db6-4721-9afb-06b774f9f181",
+                            ConcurrencyStamp = "6ef77ec9-1a37-4d60-affd-66f6bcb95d9a",
                             Email = "admin@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            Password = "123!Qaz123",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJmAN0vh7yyUoJd3ZtoIElMVdMl4UjgxHGrarkeJxE2ddukOfKxiGp++G+7m/IP/Lw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENqFWJprWehcyOVt0v11gg/acIfwF5vQQnvuXskYL+4Tb1CYkeBpxlQRMfxCVaKlMQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3c7defb4-e610-463d-bae7-1e7171076255",
+                            SecurityStamp = "1664a219-ba25-408a-8b9a-49b5028fdadb",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         },
@@ -282,16 +277,15 @@ namespace EBook.API.Migrations
                             Id = "ddc1ddb9-2495-40d6-b278-633bc6ca29c6",
                             AccessFailedCount = 0,
                             AuthLevel = 1,
-                            ConcurrencyStamp = "9f290f65-2188-4629-b2d1-8b33704f8878",
+                            ConcurrencyStamp = "242c1040-1996-45a0-a533-7b02b077d6db",
                             Email = "yoni@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "YONI@EMAIL.COM",
                             NormalizedUserName = "YONI",
-                            Password = "123!Qaz123",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGlw1dd5/7KSPtz1q+wEel+lMnLCsyKqytwhvXOX05LxyfwcvOg/V/q13S+0chcWmg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOxYplUEB4HTO6JlR00DcqMM1n9E2qpcUeFopxPoUrGvYdx6+VcxLOjPjYwfj5V8sQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5acded61-00ce-432f-8f6f-be75b316358c",
+                            SecurityStamp = "be891c43-728b-4f02-9b13-1cc3e3efa33b",
                             TwoFactorEnabled = false,
                             UserName = "Yoni"
                         });
@@ -327,21 +321,21 @@ namespace EBook.API.Migrations
                         new
                         {
                             Id = "c32f66ed-c960-4cb7-a468-90662e1fb37a",
-                            ConcurrencyStamp = "76883f51-49c1-480c-b0eb-7c75625136c3",
+                            ConcurrencyStamp = "5729c52b-13d7-42ef-bc41-6965ae29ba9b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "ddc1ddb9-2495-40d6-b278-633bc6ca29c6",
-                            ConcurrencyStamp = "e6454949-5988-43eb-aa36-796da98748e5",
+                            ConcurrencyStamp = "24e10304-baca-42c7-b41d-2bf14007b4a6",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29",
-                            ConcurrencyStamp = "200a96da-9e02-45dc-8fd1-c31891244e1c",
+                            ConcurrencyStamp = "8bdd2609-457c-4287-9f50-c284dffc8a98",
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         });

@@ -32,7 +32,6 @@ namespace EBook.API.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AuthLevel = table.Column<int>(type: "int", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -199,18 +198,18 @@ namespace EBook.API.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29", "200a96da-9e02-45dc-8fd1-c31891244e1c", "Visitor", "VISITOR" },
-                    { "c32f66ed-c960-4cb7-a468-90662e1fb37a", "76883f51-49c1-480c-b0eb-7c75625136c3", "Admin", "ADMIN" },
-                    { "ddc1ddb9-2495-40d6-b278-633bc6ca29c6", "e6454949-5988-43eb-aa36-796da98748e5", "User", "USER" }
+                    { "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29", "8bdd2609-457c-4287-9f50-c284dffc8a98", "Visitor", "VISITOR" },
+                    { "c32f66ed-c960-4cb7-a468-90662e1fb37a", "5729c52b-13d7-42ef-bc41-6965ae29ba9b", "Admin", "ADMIN" },
+                    { "ddc1ddb9-2495-40d6-b278-633bc6ca29c6", "24e10304-baca-42c7-b41d-2bf14007b4a6", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "AuthLevel", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "Password", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                columns: new[] { "Id", "AccessFailedCount", "AuthLevel", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, 2, "f2235b44-2db6-4721-9afb-06b774f9f181", "admin@email.com", true, false, null, "ADMIN@EMAIL.COM", "ADMIN", "123!Qaz123", "AQAAAAEAACcQAAAAEJmAN0vh7yyUoJd3ZtoIElMVdMl4UjgxHGrarkeJxE2ddukOfKxiGp++G+7m/IP/Lw==", null, false, "3c7defb4-e610-463d-bae7-1e7171076255", false, "Admin" },
-                    { "ddc1ddb9-2495-40d6-b278-633bc6ca29c6", 0, 1, "9f290f65-2188-4629-b2d1-8b33704f8878", "yoni@email.com", true, false, null, "YONI@EMAIL.COM", "YONI", "123!Qaz123", "AQAAAAEAACcQAAAAEGlw1dd5/7KSPtz1q+wEel+lMnLCsyKqytwhvXOX05LxyfwcvOg/V/q13S+0chcWmg==", null, false, "5acded61-00ce-432f-8f6f-be75b316358c", false, "Yoni" }
+                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, 2, "6ef77ec9-1a37-4d60-affd-66f6bcb95d9a", "admin@email.com", true, false, null, "ADMIN@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAENqFWJprWehcyOVt0v11gg/acIfwF5vQQnvuXskYL+4Tb1CYkeBpxlQRMfxCVaKlMQ==", null, false, "1664a219-ba25-408a-8b9a-49b5028fdadb", false, "Admin" },
+                    { "ddc1ddb9-2495-40d6-b278-633bc6ca29c6", 0, 1, "242c1040-1996-45a0-a533-7b02b077d6db", "yoni@email.com", true, false, null, "YONI@EMAIL.COM", "YONI", "AQAAAAEAACcQAAAAEOxYplUEB4HTO6JlR00DcqMM1n9E2qpcUeFopxPoUrGvYdx6+VcxLOjPjYwfj5V8sQ==", null, false, "be891c43-728b-4f02-9b13-1cc3e3efa33b", false, "Yoni" }
                 });
 
             migrationBuilder.InsertData(
