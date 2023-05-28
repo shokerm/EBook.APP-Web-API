@@ -7,11 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EBook.API.Data;
 using EBook.API.Data.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EBook.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class ItemsController : ControllerBase
     {
         private readonly StoreDBContext _context;
