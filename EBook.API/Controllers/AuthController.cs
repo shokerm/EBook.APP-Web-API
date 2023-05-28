@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using EBook.API.Data.Entities;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using StoreApp.API.Data;
 using StoreApp.API.Data.DTOs.UserDTOs;
-
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using JwtRegisteredClaimNames = Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames;
@@ -21,9 +21,10 @@ namespace StoreApp.API.Controllers
         private readonly UserManager<User> _manager;
         private readonly IConfiguration _config;
         private readonly IMapper _mapper;
+        private User? _user;
+
         private const string _loginProvider = "StoreAPI";
         private const string _refreshToken = "RefreshToken";
-        private User? _user;
 
         public AuthController(UserManager<User> manager, IConfiguration config, IMapper mapper)
         {
@@ -32,7 +33,7 @@ namespace StoreApp.API.Controllers
             _mapper = mapper;
         }
 
-        // Register
+        // POST: api/Auth/register
         [HttpPost]
         [Route("register")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -41,16 +42,15 @@ namespace StoreApp.API.Controllers
         public async Task<ActionResult<bool>> Register(UserRegisterDTO userDto)
         {
             var user = _mapper.Map<User>(userDto);
-            var result = await _manager.CreateAsync(user,userDto.Password);
+            var result = await _manager.CreateAsync(user, userDto.Password);
 
-            if(result.Succeeded)
+            if (result.Succeeded)
             {
                 await _manager.AddToRoleAsync(user, "User");
                 return Ok(true);
             }
             return BadRequest(false);
         }
-
 
         // POST: api/Auth/login
         [HttpPost]
@@ -79,7 +79,7 @@ namespace StoreApp.API.Controllers
         }
 
         [HttpPost]
-        [Route("createrefreshtoken")]
+        [Route("createRefreshToken")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -98,7 +98,7 @@ namespace StoreApp.API.Controllers
 
         // Verify Refresh Token
         [HttpPost]
-        [Route("varifyrefreshtoken")]
+        [Route("verifyrefreshtoken")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -135,8 +135,6 @@ namespace StoreApp.API.Controllers
             return null;
         }
 
-
-
         // Generate Token
         private async Task<string> GenerateToken()
         {
@@ -164,7 +162,5 @@ namespace StoreApp.API.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-
-
     }
 }
