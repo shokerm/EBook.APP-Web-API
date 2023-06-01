@@ -162,5 +162,17 @@ namespace StoreApp.API.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        //[HttpGet]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        //[ProducesResponseType(StatusCodes.Status200OK)]
+        //[Route("getUser/{id}")]
+        //[Authorize]
+        //public async Task<ActionResult< User?>> GetUser(string userId)
+        //{
+        //    return await _manager.FindByIdAsync(userId);
+        //}
+
     }
 }
