@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using EBook.API.Data;
 using EBook.API.Data.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using StoreApp.API.Data;
 using StoreApp.API.Data.DTOs.UserDTOs;
@@ -20,17 +22,19 @@ namespace StoreApp.API.Controllers
     {
         private readonly UserManager<User> _manager;
         private readonly IConfiguration _config;
+        private readonly StoreDBContext _context;
         private readonly IMapper _mapper;
         private User? _user;
 
         private const string _loginProvider = "StoreAPI";
         private const string _refreshToken = "RefreshToken";
 
-        public AuthController(UserManager<User> manager, IConfiguration config, IMapper mapper)
+        public AuthController(UserManager<User> manager, IConfiguration config, IMapper mapper, StoreDBContext context)
         {
             _manager = manager;
             _config = config;
             _mapper = mapper;
+            _context = context;
         }
 
         // POST: api/Auth/register
@@ -65,17 +69,22 @@ namespace StoreApp.API.Controllers
 
             if (_user == null || !isValid)
             {
-                return BadRequest(null);
+                return BadRequest(false);
             }
-            var token = await GenerateToken();
-            UserTokenDTO userReturn = new()
+            else
             {
-                Token = token,
-                Id = _user.Id,
-                RefreshToken = await CreateRefreshToken()
-            };
+                var token = await GenerateToken();
+                UserTokenDTO userReturn = new()
+                {
+                    Token = token,
+                    Id = _user.Id,
+                    RefreshToken = await CreateRefreshToken()
+                };
 
-            return userReturn;
+                return userReturn;
+
+            }
+
         }
 
         [HttpPost]
@@ -163,16 +172,49 @@ namespace StoreApp.API.Controllers
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        //[HttpGet]
-        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[ProducesResponseType(StatusCodes.Status200OK)]
-        //[Route("getUser/{id}")]
-        //[Authorize]
-        //public async Task<ActionResult< User?>> GetUser(string userId)
-        //{
-        //    return await _manager.FindByIdAsync(userId);
-        //}
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [Route("getUsers")]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> GetUsers()
+        {
+            List<User> users;
+            try
+            {
+                users = _context.Users.ToList();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+            return Ok(users);
+        }
+
+
+
+
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [Route("getUser/{id}")]
+        [Authorize]
+        public async Task<ActionResult<User>> GetUser(string id)
+        {
+            User? user = null;
+            try
+            {
+                user = await _manager.FindByIdAsync(id);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+            return Ok(user);
+        }
+
 
     }
 }
