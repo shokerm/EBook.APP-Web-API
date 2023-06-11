@@ -4,6 +4,7 @@ using EBook.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EBook.API.Migrations
 {
     [DbContext(typeof(StoreDBContext))]
-    partial class StoreDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230611161448_Mig3")]
+    partial class Mig3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,7 +42,6 @@ namespace EBook.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LikeToggleStatus")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -49,7 +51,7 @@ namespace EBook.API.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<int>("Quantity")
+                    b.Property<int?>("Quantity")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -257,32 +259,32 @@ namespace EBook.API.Migrations
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
                             AuthLevel = 2,
-                            ConcurrencyStamp = "e5bbdfd3-b266-4567-83e6-4a8fe2e749dd",
+                            ConcurrencyStamp = "631e516a-a243-4c14-b8fd-f15469f2e5fe",
                             Email = "admin@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAELqE5bbhYDImyafyPH4xWMkt0XCz8c70RjPiJhBZZVmswlu1c5DfL6qT4NhqwP0d1g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPMlDdeERqrLeIqfn3YZf3p3SWQn/zPn30dZi4b2cJng9vQlL6EZ5zV3kawIm6mWOA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "43e72f8c-4135-4d89-8a71-b3d0048c08c3",
+                            SecurityStamp = "cdfdf299-2aa2-4919-b13b-d8ba6eb8ba7d",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         },
                         new
                         {
-                            Id = "59f65e3a-706c-4056-a0bc-c4597e08599e",
+                            Id = "ddc1ddb9-2495-40d6-b278-633bc6ca29c6",
                             AccessFailedCount = 0,
                             AuthLevel = 1,
-                            ConcurrencyStamp = "193e2ded-770b-4b40-a873-3add802ed3f1",
+                            ConcurrencyStamp = "d21ce609-c0a1-443d-a0b8-2435df7dc381",
                             Email = "yoni@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "YONI@EMAIL.COM",
                             NormalizedUserName = "YONI",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOAv+H4GUxqKV3jeEQsQk/5hSqkjCsiZTLcmLSJkPPRkXI6VFQnW/IhPNJuzzMqtog==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIKU/if+22SqjHEfQ8BDBrbprRkqekbYugcIDbVD/NInDn6VVcwj9bavGM0nlpH03A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f03159ec-91e6-42cb-af6f-0e95c064d8b1",
+                            SecurityStamp = "1e9b60e6-059a-46af-83b0-7d7c01655754",
                             TwoFactorEnabled = false,
                             UserName = "Yoni"
                         });
@@ -318,21 +320,21 @@ namespace EBook.API.Migrations
                         new
                         {
                             Id = "c32f66ed-c960-4cb7-a468-90662e1fb37a",
-                            ConcurrencyStamp = "7a7fbf2b-ab87-4c6f-8782-06133345426c",
+                            ConcurrencyStamp = "4238e436-ebcd-4a47-b863-8b3912679993",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "ddc1ddb9-2495-40d6-b278-633bc6ca29c6",
-                            ConcurrencyStamp = "0ed5d1db-67b7-4d76-a3c8-6210128d2be7",
+                            ConcurrencyStamp = "ec00c397-62d8-4261-a1ab-945964dcfe95",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29",
-                            ConcurrencyStamp = "78a31b6e-8082-4e66-96fb-7ff7c8e3b0b7",
+                            ConcurrencyStamp = "014c1923-4747-40d5-bfd9-007cb9ce5382",
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         });
@@ -432,7 +434,7 @@ namespace EBook.API.Migrations
                         },
                         new
                         {
-                            UserId = "59f65e3a-706c-4056-a0bc-c4597e08599e",
+                            UserId = "ddc1ddb9-2495-40d6-b278-633bc6ca29c6",
                             RoleId = "ddc1ddb9-2495-40d6-b278-633bc6ca29c6"
                         });
                 });

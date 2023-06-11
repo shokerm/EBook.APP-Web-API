@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EBook.API.Migrations
 {
     [DbContext(typeof(StoreDBContext))]
-    [Migration("20230528114957_InitMigration")]
+    [Migration("20230611161042_InitMigration")]
     partial class InitMigration
     {
         /// <inheritdoc />
@@ -64,7 +64,7 @@ namespace EBook.API.Migrations
                         {
                             Id = 1,
                             ImageAlt = "javascript-book",
-                            ImageUrl = "../../../../assets//Images/store-images/javascript-book.jpg",
+                            ImageUrl = "../../../../assets//images/store-images/javascript-book.jpg",
                             LikeToggleStatus = "favorite_border",
                             Name = "JavaScript",
                             Price = 99.900000000000006,
@@ -74,7 +74,7 @@ namespace EBook.API.Migrations
                         {
                             Id = 2,
                             ImageAlt = "entity-framework-book",
-                            ImageUrl = "../../../../assets//Images/store-images/entity-framework-book.jpg",
+                            ImageUrl = "../../../../assets//images/store-images/entity-framework-book.jpg",
                             LikeToggleStatus = "favorite_border",
                             Name = "Entity Framework",
                             Price = 79.900000000000006,
@@ -84,7 +84,7 @@ namespace EBook.API.Migrations
                         {
                             Id = 3,
                             ImageAlt = "jQuery",
-                            ImageUrl = "../../../../assets//Images/store-images/jquery-book.jpg",
+                            ImageUrl = "../../../../assets//images/store-images/jquery-book.jpg",
                             LikeToggleStatus = "favorite_border",
                             Name = "jQuery",
                             Price = 59.899999999999999,
@@ -94,7 +94,7 @@ namespace EBook.API.Migrations
                         {
                             Id = 4,
                             ImageAlt = "Powershell",
-                            ImageUrl = "../../../../assets//Images/store-images/powershell-book.jpg",
+                            ImageUrl = "../../../../assets//images/store-images/powershell-book.jpg",
                             LikeToggleStatus = "favorite_border",
                             Name = "Powershell",
                             Price = 49.899999999999999,
@@ -104,7 +104,7 @@ namespace EBook.API.Migrations
                         {
                             Id = 5,
                             ImageAlt = "ReactJS",
-                            ImageUrl = "../../../../assets//Images/store-images/reactjs-book.jpg",
+                            ImageUrl = "../../../../assets//images/store-images/reactjs-book.jpg",
                             LikeToggleStatus = "favorite_border",
                             Name = "ReactJS",
                             Price = 299.89999999999998,
@@ -114,7 +114,7 @@ namespace EBook.API.Migrations
                         {
                             Id = 6,
                             ImageAlt = "Git",
-                            ImageUrl = "../../../../assets//Images/store-images/git-book.jpg",
+                            ImageUrl = "../../../../assets//images/store-images/git-book.jpg",
                             LikeToggleStatus = "favorite_border",
                             Name = "Git",
                             Price = 99.900000000000006,
@@ -124,7 +124,7 @@ namespace EBook.API.Migrations
                         {
                             Id = 7,
                             ImageAlt = "Ruby on Rails",
-                            ImageUrl = "../../../../assets//Images/store-images/ruby-on-rails-book.jpg",
+                            ImageUrl = "../../../../assets//images/store-images/ruby-on-rails-book.jpg",
                             LikeToggleStatus = "favorite_border",
                             Name = "Ruby on Rails",
                             Price = 99.900000000000006,
@@ -134,7 +134,7 @@ namespace EBook.API.Migrations
                         {
                             Id = 8,
                             ImageAlt = "Oracle Database",
-                            ImageUrl = "../../../../assets//Images/store-images/oracle-database-book.jpg",
+                            ImageUrl = "../../../../assets//images/store-images/oracle-database-book.jpg",
                             LikeToggleStatus = "favorite_border",
                             Name = "Oracle Database",
                             Price = 99.900000000000006,
@@ -144,7 +144,7 @@ namespace EBook.API.Migrations
                         {
                             Id = 9,
                             ImageAlt = "image-3",
-                            ImageUrl = "../../../../assets//Images/store-images/ios-developer-book.jpg",
+                            ImageUrl = "../../../../assets//images/store-images/ios-developer-book.jpg",
                             LikeToggleStatus = "favorite_border",
                             Name = "IOS Developer ",
                             Price = 149.90000000000001,
@@ -154,7 +154,7 @@ namespace EBook.API.Migrations
                         {
                             Id = 10,
                             ImageAlt = "Visual Basic .NET",
-                            ImageUrl = "../../../../assets//Images/store-images/visual-basic-dotnet-book.jpg",
+                            ImageUrl = "../../../../assets//images/store-images/visual-basic-dotnet-book.jpg",
                             LikeToggleStatus = "favorite_border",
                             Name = "Visual Basic .NET",
                             Price = 49.899999999999999,
@@ -260,15 +260,15 @@ namespace EBook.API.Migrations
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
                             AuthLevel = 2,
-                            ConcurrencyStamp = "6ef77ec9-1a37-4d60-affd-66f6bcb95d9a",
+                            ConcurrencyStamp = "98be207b-0a69-4385-82d8-01c7a10f7d41",
                             Email = "admin@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAENqFWJprWehcyOVt0v11gg/acIfwF5vQQnvuXskYL+4Tb1CYkeBpxlQRMfxCVaKlMQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJXyuJK1rrUP5582VQtORtjm/V5ptu0ohRxAkjS7t+BVytcSG32+v/qA8Q6Ui2C1XA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1664a219-ba25-408a-8b9a-49b5028fdadb",
+                            SecurityStamp = "cd26d46a-2a76-4bad-8134-48be21a6d0bc",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         },
@@ -277,15 +277,15 @@ namespace EBook.API.Migrations
                             Id = "ddc1ddb9-2495-40d6-b278-633bc6ca29c6",
                             AccessFailedCount = 0,
                             AuthLevel = 1,
-                            ConcurrencyStamp = "242c1040-1996-45a0-a533-7b02b077d6db",
+                            ConcurrencyStamp = "bbeb4df2-a18e-46ad-8890-72f062de415a",
                             Email = "yoni@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "YONI@EMAIL.COM",
                             NormalizedUserName = "YONI",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOxYplUEB4HTO6JlR00DcqMM1n9E2qpcUeFopxPoUrGvYdx6+VcxLOjPjYwfj5V8sQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENPA4RWhN5IciMP5ufyStPQ+/ZZSAwMq5PgMfE9ven1EQEtQRyXlMiQD6xjz15RhRw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "be891c43-728b-4f02-9b13-1cc3e3efa33b",
+                            SecurityStamp = "16af9321-04b3-41ee-9312-aa5170233de9",
                             TwoFactorEnabled = false,
                             UserName = "Yoni"
                         });
@@ -321,21 +321,21 @@ namespace EBook.API.Migrations
                         new
                         {
                             Id = "c32f66ed-c960-4cb7-a468-90662e1fb37a",
-                            ConcurrencyStamp = "5729c52b-13d7-42ef-bc41-6965ae29ba9b",
+                            ConcurrencyStamp = "8f39608b-3cae-43e3-9fdf-a1874b898cab",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "ddc1ddb9-2495-40d6-b278-633bc6ca29c6",
-                            ConcurrencyStamp = "24e10304-baca-42c7-b41d-2bf14007b4a6",
+                            ConcurrencyStamp = "5c4735a0-9bbb-4d88-abfc-cf4721742b2e",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29",
-                            ConcurrencyStamp = "8bdd2609-457c-4287-9f50-c284dffc8a98",
+                            ConcurrencyStamp = "d6b89710-834f-46d5-837a-52534d0817d3",
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         });

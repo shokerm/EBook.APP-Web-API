@@ -16,7 +16,7 @@ namespace StoreApp.API.Data.Configurations
                  new IdentityUserRole<string>
                  {
                      RoleId = "ddc1ddb9-2495-40d6-b278-633bc6ca29c6",
-                     UserId = "ddc1ddb9-2495-40d6-b278-633bc6ca29c6"
+                     UserId = "59f65e3a-706c-4056-a0bc-c4597e08599e"
                  }
                 );
         }

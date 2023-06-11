@@ -8,20 +8,30 @@ using Microsoft.EntityFrameworkCore;
 using EBook.API.Data;
 using EBook.API.Data.Entities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using AutoMapper;
+using EBook.API.Data.DTOs;
+using StoreApp.API.Data.DTOs.UserDTOs;
 
 namespace EBook.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+
 
     public class ItemsController : ControllerBase
     {
-        private readonly StoreDBContext _context;
+        private readonly UserManager<Item> _manager;
 
-        public ItemsController(StoreDBContext context)
+        private readonly StoreDBContext _context;
+        private readonly IMapper _mapper;
+
+
+        public ItemsController(StoreDBContext context, IMapper mapper)
         {
+
             _context = context;
+            _mapper = mapper;
         }
 
         // GET= api/Items
@@ -53,51 +63,60 @@ namespace EBook.API.Controllers
             return item;
         }
 
-        // PUT= api/Items/5
-        // To protect from overposting attacks, see https=//go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutItem(int id, Item item)
-        {
-            if (id != item.Id)
-            {
-                return BadRequest();
-            }
+        //// PUT= api/Items/5
+        //// To protect from overposting attacks, see https=//go.microsoft.com/fwlink/?linkid=2123754
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> PutItem(int id, Item item)
+        //{
+        //    if (id != item.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            _context.Entry(item).State = EntityState.Modified;
+        //    _context.Entry(item).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ItemExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!ItemExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
-        // POST= api/Items
+        //POST= api/Items
         // To protect from overposting attacks, see https=//go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Item>> PostItem(Item item)
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult<bool>> PostItem(ItemDTO itemDTO)
         {
-          if (_context.Items == null)
-          {
-              return Problem("Entity set 'StoreDBContext.Items'  is null.");
-          }
-            _context.Items.Add(item);
-            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetItem", new { id = item.Id }, item);
+            Item newItem = _mapper.Map<Item>(itemDTO);
+            newItem.Quantity = 1;
+            newItem.LikeToggleStatus = "favorite_border";
+
+
+             _context.Items.Add(newItem);
+                await _context.SaveChangesAsync();
+
+                return Ok(true);
+
+            
+           
         }
+
+
+
 
         // DELETE= api/Items/5
         [HttpDelete("{id}")]

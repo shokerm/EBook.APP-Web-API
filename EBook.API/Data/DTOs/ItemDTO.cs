@@ -1,18 +1,11 @@
-﻿namespace EBook.API.Data.Entities
+﻿namespace EBook.API.Data.DTOs
 {
-    public class Item
+    public class ItemDTO
     {
-
-        public int Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
         public string ImageUrl { get; set; }
         public string ImageAlt { get; set; }
-        public int Quantity { get; set; }
-        public string LikeToggleStatus { get; set; }
-
-
-
        
     }
 }

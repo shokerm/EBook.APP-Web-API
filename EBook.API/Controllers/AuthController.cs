@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Azure.Identity;
 using EBook.API.Data;
 using EBook.API.Data.Entities;
 using Microsoft.AspNetCore.Authorization;
@@ -43,10 +44,14 @@ namespace StoreApp.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        
         public async Task<ActionResult<bool>> Register(UserRegisterDTO userDto)
         {
             var user = _mapper.Map<User>(userDto);
+        
+            user.AuthLevel = AuthLevels.User;
             var result = await _manager.CreateAsync(user, userDto.Password);
+             
 
             if (result.Succeeded)
             {
@@ -62,6 +67,7 @@ namespace StoreApp.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
+       
         public async Task<ActionResult<UserTokenDTO>> Login([FromBody] UserLoginDTO loginDto)
         {
             _user = await _manager.FindByEmailAsync(loginDto.Email);
@@ -201,18 +207,20 @@ namespace StoreApp.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [Route("getUser/{id}")]
         [Authorize]
-        public async Task<ActionResult<User>> GetUser(string id)
+        public async Task<ActionResult<string>> GetUser(string id)
         {
             User? user = null;
+
             try
             {
                 user = await _manager.FindByIdAsync(id);
+
             }
             catch (Exception ex)
             {
                 return BadRequest(ex);
             }
-            return Ok(user);
+            return Ok(new{ name =user.UserName});
         }
 
 

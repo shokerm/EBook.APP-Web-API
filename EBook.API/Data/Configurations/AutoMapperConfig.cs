@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EBook.API.Data.DTOs;
 using EBook.API.Data.Entities;
 using StoreApp.API.Data.DTOs.UserDTOs;
 
@@ -9,6 +10,8 @@ namespace StoreApp.API.Data.Configurations
         public AutoMapperConfig()
         {
             CreateMap<User,UserRegisterDTO>().ReverseMap();
+
+            CreateMap<Item, ItemDTO>().ReverseMap();
         }
     }
 }

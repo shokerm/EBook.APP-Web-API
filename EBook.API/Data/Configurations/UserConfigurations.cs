@@ -27,7 +27,7 @@ namespace StoreApp.API.Data.Configurations
                  },
                  new User
                  {
-                     Id = "ddc1ddb9-2495-40d6-b278-633bc6ca29c6",
+                     Id = "59f65e3a-706c-4056-a0bc-c4597e08599e",
                      UserName = "Yoni",
                      NormalizedUserName = "YONI",
                      Email = "yoni@email.com",
