@@ -63,36 +63,45 @@ namespace EBook.API.Controllers
             return item;
         }
 
-        //// PUT= api/Items/5
-        //// To protect from overposting attacks, see https=//go.microsoft.com/fwlink/?linkid=2123754
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> PutItem(int id, Item item)
-        //{
-        //    if (id != item.Id)
-        //    {
-        //        return BadRequest();
-        //    }
+        // PUT= api/Items/5
+        // To protect from overposting attacks, see https=//go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutItem(int id, ItemDTO itemDTO)
+        {
+            Item itemTOEdit = _mapper.Map<Item>(itemDTO);
+            itemTOEdit.Id = id;
+            itemTOEdit.Quantity = 1;
+            itemTOEdit.LikeToggleStatus = "favorite_border";
 
-        //    _context.Entry(item).State = EntityState.Modified;
+            if (id != itemTOEdit.Id)
+            {
+                return BadRequest();
+            }
 
-        //    try
-        //    {
-        //        await _context.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (!ItemExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
+            if(itemTOEdit.Name == "" || itemTOEdit.Name == null )
+            {
+                itemTOEdit.Name = _context.Items.SingleOrDefault(x=>x.Id==id).Name;
+            }
+            _context.Entry(itemTOEdit).State = EntityState.Modified;
 
-        //    return NoContent();
-        //}
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ItemExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
 
         //POST= api/Items
         // To protect from overposting attacks, see https=//go.microsoft.com/fwlink/?linkid=2123754
