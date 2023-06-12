@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EBook.API.Migrations
 {
     [DbContext(typeof(StoreDBContext))]
-    [Migration("20230612152433_InitMig")]
+    [Migration("20230612184843_InitMig")]
     partial class InitMig
     {
         /// <inheritdoc />
@@ -260,15 +260,15 @@ namespace EBook.API.Migrations
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
                             AuthLevel = 2,
-                            ConcurrencyStamp = "79fbf8e3-a8d1-435b-8988-eb67e907c052",
+                            ConcurrencyStamp = "e8b91aa8-aa9c-4d36-9559-74c800f6390d",
                             Email = "admin@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDYfZn6P0vbBdYngber4+zJQhNOxq0Edo+bZy83Ja4qUpgIPYT6wtjty6NCsmgD9Dg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEP66xy2nt8fgzgzsARg9np26ByDVaGBQLCRzgf36L/x0Z70l4R94l0d6SZRMNgwnMg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1d33947a-e6cb-40d5-80a3-843c77e62f48",
+                            SecurityStamp = "439fed1c-3027-4d29-b01a-fec8f39631c0",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         },
@@ -277,15 +277,15 @@ namespace EBook.API.Migrations
                             Id = "59f65e3a-706c-4056-a0bc-c4597e08599e",
                             AccessFailedCount = 0,
                             AuthLevel = 1,
-                            ConcurrencyStamp = "4ea47c9c-5dae-4b2c-b398-70386e3e685b",
+                            ConcurrencyStamp = "5dc16cd2-f19b-4c50-ad69-5249d3686256",
                             Email = "yoni@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "YONI@EMAIL.COM",
                             NormalizedUserName = "YONI",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFvinjOBwKHuRp3ki8SfmCekRUV+KyjHv7MhpsOchzNJdKWN5mEQ3mYXCW4Dyedh0A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEETIdMrN+g2EqHcyhMp3nIbWEPBe/90CYGHwcK/09VHF9Z0bhd3DU26v/CsaTtzRiA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c8825fe4-c691-43c6-aec9-fabbebfc1ad2",
+                            SecurityStamp = "705d1c19-5d43-48aa-b1a5-62b29c3d4186",
                             TwoFactorEnabled = false,
                             UserName = "Yoni"
                         });
@@ -321,21 +321,21 @@ namespace EBook.API.Migrations
                         new
                         {
                             Id = "c32f66ed-c960-4cb7-a468-90662e1fb37a",
-                            ConcurrencyStamp = "0d39aeb4-1c94-4e82-93c3-d6c29d70a95c",
+                            ConcurrencyStamp = "0777bc89-831e-4e58-8010-d5c61e77f0fc",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "ddc1ddb9-2495-40d6-b278-633bc6ca29c6",
-                            ConcurrencyStamp = "326c2e92-7aae-4ca6-9bf3-bd4771c5f70e",
+                            ConcurrencyStamp = "b2745656-d563-49de-8e21-c5088abee45a",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29",
-                            ConcurrencyStamp = "4701b1aa-69e2-4ae0-a46b-fa6c0ea9608c",
+                            ConcurrencyStamp = "00dd0374-aa80-4840-a382-15966f987487",
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         });

@@ -78,10 +78,6 @@ namespace EBook.API.Controllers
                 return BadRequest();
             }
 
-            if(itemTOEdit.Name == "" || itemTOEdit.Name == null )
-            {
-                itemTOEdit.Name = _context.Items.SingleOrDefault(x=>x.Id==id).Name;
-            }
             _context.Entry(itemTOEdit).State = EntityState.Modified;
 
             try
