@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EBook.API.Migrations
 {
     /// <inheritdoc />
-    public partial class InitMig : Migration
+    public partial class InitMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -198,9 +198,9 @@ namespace EBook.API.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29", "00dd0374-aa80-4840-a382-15966f987487", "Visitor", "VISITOR" },
-                    { "c32f66ed-c960-4cb7-a468-90662e1fb37a", "0777bc89-831e-4e58-8010-d5c61e77f0fc", "Admin", "ADMIN" },
-                    { "ddc1ddb9-2495-40d6-b278-633bc6ca29c6", "b2745656-d563-49de-8e21-c5088abee45a", "User", "USER" }
+                    { "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29", "232c63d9-b0e3-4329-8d9f-400f42d07502", "Visitor", "VISITOR" },
+                    { "c32f66ed-c960-4cb7-a468-90662e1fb37a", "549279ba-bc30-4b8a-9fc1-ab4471ead275", "Admin", "ADMIN" },
+                    { "ddc1ddb9-2495-40d6-b278-633bc6ca29c6", "3ec9a958-c489-43b9-b1ca-2efbb8b5ad9e", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
@@ -208,8 +208,8 @@ namespace EBook.API.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "AuthLevel", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "59f65e3a-706c-4056-a0bc-c4597e08599e", 0, 1, "5dc16cd2-f19b-4c50-ad69-5249d3686256", "yoni@email.com", true, false, null, "YONI@EMAIL.COM", "YONI", "AQAAAAEAACcQAAAAEETIdMrN+g2EqHcyhMp3nIbWEPBe/90CYGHwcK/09VHF9Z0bhd3DU26v/CsaTtzRiA==", null, false, "705d1c19-5d43-48aa-b1a5-62b29c3d4186", false, "Yoni" },
-                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, 2, "e8b91aa8-aa9c-4d36-9559-74c800f6390d", "admin@email.com", true, false, null, "ADMIN@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEP66xy2nt8fgzgzsARg9np26ByDVaGBQLCRzgf36L/x0Z70l4R94l0d6SZRMNgwnMg==", null, false, "439fed1c-3027-4d29-b01a-fec8f39631c0", false, "Admin" }
+                    { "59f65e3a-706c-4056-a0bc-c4597e08599e", 0, 1, "679d6cee-7d4f-45fd-8e33-8f61a2ea645e", "user@email.com", true, false, null, "USER@EMAIL.COM", "USER", "AQAAAAEAACcQAAAAEIB7Jw5sSa1Yr9qSjyZ/1TzvzT4TBTuYY0ZA+4xNYghHeUomLUzhKw5bpZFExiN2LA==", null, false, "58c38319-fa4a-48fd-9c6c-1d68a6e782ba", false, "User" },
+                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, 2, "ebe6a579-65a1-422b-881a-0040cd8411e1", "admin@email.com", true, false, null, "ADMIN@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEO8rdYcPAaFoUeSa8P3ptN1giDIa+7VmZa/HrC7aMAQajjtKqNOt8/ucTaIEebql7w==", null, false, "d84bcb11-5f48-479c-b84a-702c56da09dd", false, "Admin" }
                 });
 
             migrationBuilder.InsertData(

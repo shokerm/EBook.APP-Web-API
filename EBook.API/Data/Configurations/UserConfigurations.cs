@@ -20,7 +20,7 @@ namespace StoreApp.API.Data.Configurations
                      NormalizedUserName = "ADMIN",
                      Email = "admin@email.com",
                      NormalizedEmail = "ADMIN@EMAIL.COM",
-                     PasswordHash = hasher.HashPassword(null, "123!Qaz123"),
+                     PasswordHash = hasher.HashPassword(null, "Aa@1234"),
                      EmailConfirmed = true,
                      AuthLevel = AuthLevels.Admin,
                      SecurityStamp = Guid.NewGuid().ToString("D")
@@ -28,11 +28,11 @@ namespace StoreApp.API.Data.Configurations
                  new User
                  {
                      Id = "59f65e3a-706c-4056-a0bc-c4597e08599e",
-                     UserName = "Yoni",
-                     NormalizedUserName = "YONI",
-                     Email = "yoni@email.com",
-                     NormalizedEmail = "YONI@EMAIL.COM",
-                     PasswordHash = hasher.HashPassword(null, "123!Qaz123"),
+                     UserName = "User",
+                     NormalizedUserName = "USER",
+                     Email = "user@email.com",
+                     NormalizedEmail = "USER@EMAIL.COM",
+                     PasswordHash = hasher.HashPassword(null, "Bb@4321"),
                      EmailConfirmed = true,
                      AuthLevel = AuthLevels.User,
                      SecurityStamp = Guid.NewGuid().ToString("D")

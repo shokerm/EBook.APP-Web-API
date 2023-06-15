@@ -66,6 +66,8 @@ namespace EBook.API.Controllers
         // PUT= api/Items/5
         // To protect from overposting attacks, see https=//go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> PutItem(int id, ItemDTO itemDTO)
         {
             Item itemTOEdit = _mapper.Map<Item>(itemDTO);
@@ -125,6 +127,8 @@ namespace EBook.API.Controllers
 
         // DELETE= api/Items/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> DeleteItem(int id)
         {
             if (_context.Items == null)
