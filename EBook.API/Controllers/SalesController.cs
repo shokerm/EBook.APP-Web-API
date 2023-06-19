@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EBook.API.Data;
 using EBook.API.Data.Entities;
+using EBook.API.Data.DTOs;
+using AutoMapper;
 
 namespace EBook.API.Controllers
 {
@@ -15,21 +17,41 @@ namespace EBook.API.Controllers
     public class SalesController : ControllerBase
     {
         private readonly StoreDBContext _context;
+        private readonly IMapper _mapper;
 
-        public SalesController(StoreDBContext context)
+
+        public SalesController(StoreDBContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
+            
         }
 
         // GET= api/Sales
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Sale>>> GetSales()
+        public async Task<ActionResult<IEnumerable<SaleItemDTO>>> GetSales()
         {
-          if (_context.Sales == null)
-          {
-              return NotFound();
-          }
-            return await _context.Sales.ToListAsync();
+            if (_context.Sales == null)
+            {
+                return NotFound();
+            }
+
+            var p = (from s in _context.Sales
+                     join i in _context.Items
+                     on s.ItemId equals i.Id
+                     select new SaleItemDTO
+                     {
+                         Id = s.Id,
+                         UserId = s.UserId,
+                         Product = i.Name,
+                         ItemId = i.Id,
+                         Quantity = s.Quantity,
+                         SaleDate = s.SaleDate
+                         
+                     }
+                   ).ToList();
+            return p;
+
         }
 
         // GET= api/Sales/5
@@ -89,7 +111,8 @@ namespace EBook.API.Controllers
           if (_context.Sales == null)
           { 
               return Problem("Entity set 'StoreDBContext.Sales'  is null.");
-          } 
+          }
+            sale.SaleDate = DateTime.Now;
             _context.Sales.Add(sale);
             await _context.SaveChangesAsync();
             

@@ -12,6 +12,7 @@ namespace StoreApp.API.Data.Configurations
             CreateMap<User,UserRegisterDTO>().ReverseMap();
 
             CreateMap<Item, ItemDTO>().ReverseMap();
+            CreateMap<Sale, SaleItemDTO>().ReverseMap();
         }
     }
 }
