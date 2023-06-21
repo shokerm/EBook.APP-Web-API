@@ -98,7 +98,6 @@ namespace StoreApp.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [Authorize]
         // Create Refresh Token
         public async Task<string> CreateRefreshToken()
         {
@@ -111,13 +110,33 @@ namespace StoreApp.API.Controllers
             return newRefreshToken;
         }
 
+        // 
+
+        [HttpPost]
+        [Route("refreshtoken")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        
+
+
+        public async Task<ActionResult> RefreshToken([FromBody] UserTokenDTO request)
+        {
+            var authResponse = await VerifyRefreshToken(request);
+            return authResponse == null ?
+                Unauthorized():
+                    Ok(authResponse);
+        }
+
+
+
         // Verify Refresh Token
         [HttpPost]
         [Route("verifyrefreshtoken")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [Authorize]
+        
         public async Task<UserTokenDTO?> VerifyRefreshToken(UserTokenDTO request)
         {
 
@@ -207,7 +226,7 @@ namespace StoreApp.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [Route("getUser/{id}")]
         [Authorize]
-        public async Task<ActionResult<string>> GetUser(string id)
+        public async Task<ActionResult<User>> GetUser(string id)
         {
             User? user = null;
 
@@ -220,7 +239,7 @@ namespace StoreApp.API.Controllers
             {
                 return BadRequest(ex);
             }
-            return Ok(new{ name =user.UserName});
+            return Ok(user);
         }
 
 
