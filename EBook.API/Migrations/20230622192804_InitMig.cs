@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EBook.API.Migrations
 {
     /// <inheritdoc />
-    public partial class InitMigration : Migration
+    public partial class InitMig : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -77,7 +77,7 @@ namespace EBook.API.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ItemId = table.Column<int>(type: "int", nullable: false),
                     SaleDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false)
@@ -198,9 +198,9 @@ namespace EBook.API.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29", "232c63d9-b0e3-4329-8d9f-400f42d07502", "Visitor", "VISITOR" },
-                    { "c32f66ed-c960-4cb7-a468-90662e1fb37a", "549279ba-bc30-4b8a-9fc1-ab4471ead275", "Admin", "ADMIN" },
-                    { "ddc1ddb9-2495-40d6-b278-633bc6ca29c6", "3ec9a958-c489-43b9-b1ca-2efbb8b5ad9e", "User", "USER" }
+                    { "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29", "1fa97b22-9477-4a4a-9446-e37846e1722d", "Visitor", "VISITOR" },
+                    { "c32f66ed-c960-4cb7-a468-90662e1fb37a", "ad7be0b9-7bb8-42b6-97e3-af1b17861800", "Admin", "ADMIN" },
+                    { "ddc1ddb9-2495-40d6-b278-633bc6ca29c6", "3c6713f4-2457-4f23-8ffa-22b69a35bba3", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
@@ -208,8 +208,8 @@ namespace EBook.API.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "AuthLevel", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "59f65e3a-706c-4056-a0bc-c4597e08599e", 0, 1, "679d6cee-7d4f-45fd-8e33-8f61a2ea645e", "user@email.com", true, false, null, "USER@EMAIL.COM", "USER", "AQAAAAEAACcQAAAAEIB7Jw5sSa1Yr9qSjyZ/1TzvzT4TBTuYY0ZA+4xNYghHeUomLUzhKw5bpZFExiN2LA==", null, false, "58c38319-fa4a-48fd-9c6c-1d68a6e782ba", false, "User" },
-                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, 2, "ebe6a579-65a1-422b-881a-0040cd8411e1", "admin@email.com", true, false, null, "ADMIN@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEO8rdYcPAaFoUeSa8P3ptN1giDIa+7VmZa/HrC7aMAQajjtKqNOt8/ucTaIEebql7w==", null, false, "d84bcb11-5f48-479c-b84a-702c56da09dd", false, "Admin" }
+                    { "59f65e3a-706c-4056-a0bc-c4597e08599e", 0, 1, "08cfa71b-5331-4933-8c65-6127f76a4397", "user@email.com", true, false, null, "USER@EMAIL.COM", "USER", "AQAAAAEAACcQAAAAEFhRAHrdgrx5P9rH7JhNzYCFRRNwri00859eS9IUDBD2tocNQAh2t3uCq7BjJdEnBw==", null, false, "9365d065-fd83-49dd-86b0-9df3dc357a86", false, "User" },
+                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, 2, "f9ccd315-7b3a-4783-8b9e-0f1c40aa4d99", "admin@email.com", true, false, null, "ADMIN@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEBgKk6dGrU/r9HJ8Omz9eg6wVxZe1i16y8/Z02/CGVBKTO1/OSEX/L7mBhmIr1ScZw==", null, false, "6ef1077a-0248-4b9c-8e20-ee8daac32b2d", false, "Admin" }
                 });
 
             migrationBuilder.InsertData(

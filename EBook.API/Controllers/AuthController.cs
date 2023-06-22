@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Azure.Identity;
 using EBook.API.Data;
+using EBook.API.Data.DTOs.UserDTOs;
 using EBook.API.Data.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -98,6 +99,8 @@ namespace StoreApp.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
+
         // Create Refresh Token
         public async Task<string> CreateRefreshToken()
         {
@@ -117,7 +120,8 @@ namespace StoreApp.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        
+        [Authorize]
+
 
 
         public async Task<ActionResult> RefreshToken([FromBody] UserTokenDTO request)
@@ -136,7 +140,7 @@ namespace StoreApp.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        
+        [Authorize]
         public async Task<UserTokenDTO?> VerifyRefreshToken(UserTokenDTO request)
         {
 
@@ -243,5 +247,43 @@ namespace StoreApp.API.Controllers
         }
 
 
+
+
+        [HttpPut]
+        [Route("updateUser/{id}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<bool>> UpdateUser(string Id, [FromBody]UserUpdateDTO userUpdateDTO)
+        //[Authorize]
+        {
+            try
+            {
+                var hasher = new PasswordHasher<IdentityUser>();
+
+                _user = await _manager.FindByIdAsync(Id);
+                _user.UserName = userUpdateDTO.UserName;
+                _user.PasswordHash = hasher.HashPassword(null,userUpdateDTO.Password);
+                _user.NormalizedUserName = userUpdateDTO.UserName.ToUpper();
+                _user.Email = userUpdateDTO.Email;
+                _user.NormalizedEmail = userUpdateDTO.Email.ToUpper();
+                await _context.SaveChangesAsync();
+
+                return Ok(true);
+
+            }
+            catch
+            {
+                return BadRequest(false);
+            }
+
+
+
+        }
+
+
     }
+
+
+
 }

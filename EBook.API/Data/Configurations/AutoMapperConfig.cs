@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EBook.API.Data.DTOs;
+using EBook.API.Data.DTOs.UserDTOs;
 using EBook.API.Data.Entities;
 using StoreApp.API.Data.DTOs.UserDTOs;
 
@@ -13,6 +14,8 @@ namespace StoreApp.API.Data.Configurations
 
             CreateMap<Item, ItemDTO>().ReverseMap();
             CreateMap<Sale, SaleItemDTO>().ReverseMap();
+            CreateMap<User, UserUpdateDTO>().ReverseMap();
+
         }
     }
 }
