@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EBook.API.Migrations
 {
     [DbContext(typeof(StoreDBContext))]
-    [Migration("20230622192804_InitMig")]
-    partial class InitMig
+    [Migration("20230625130532_InitMigration")]
+    partial class InitMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -186,6 +186,72 @@ namespace EBook.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sales");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ItemId = 1,
+                            Quantity = 1,
+                            SaleDate = new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2835),
+                            UserId = "8e445865-a24d-4543-a6c6-9443d048cdb9"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ItemId = 2,
+                            Quantity = 2,
+                            SaleDate = new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2870),
+                            UserId = "8e445865-a24d-4543-a6c6-9443d048cdb9"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ItemId = 3,
+                            Quantity = 1,
+                            SaleDate = new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2873),
+                            UserId = "8e445865-a24d-4543-a6c6-9443d048cdb9"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ItemId = 4,
+                            Quantity = 3,
+                            SaleDate = new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2875),
+                            UserId = "8e445865-a24d-4543-a6c6-9443d048cdb9"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ItemId = 5,
+                            Quantity = 1,
+                            SaleDate = new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2877),
+                            UserId = "8e445865-a24d-4543-a6c6-9443d048cdb9"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ItemId = 6,
+                            Quantity = 1,
+                            SaleDate = new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2879),
+                            UserId = "59f65e3a-706c-4056-a0bc-c4597e08599e"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ItemId = 7,
+                            Quantity = 1,
+                            SaleDate = new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2881),
+                            UserId = "59f65e3a-706c-4056-a0bc-c4597e08599e"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ItemId = 8,
+                            Quantity = 1,
+                            SaleDate = new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2884),
+                            UserId = "59f65e3a-706c-4056-a0bc-c4597e08599e"
+                        });
                 });
 
             modelBuilder.Entity("EBook.API.Data.Entities.User", b =>
@@ -261,15 +327,15 @@ namespace EBook.API.Migrations
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
                             AuthLevel = 2,
-                            ConcurrencyStamp = "f9ccd315-7b3a-4783-8b9e-0f1c40aa4d99",
+                            ConcurrencyStamp = "d5aa61cf-548f-40fd-824e-56f106a1236e",
                             Email = "admin@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBgKk6dGrU/r9HJ8Omz9eg6wVxZe1i16y8/Z02/CGVBKTO1/OSEX/L7mBhmIr1ScZw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPTHY9KoJVs3RNReeSM7ESBLg4I1KOUWrRqoNm0b9NDkz3w2XvUQNF9Ui4eSwwd27A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6ef1077a-0248-4b9c-8e20-ee8daac32b2d",
+                            SecurityStamp = "6dfa6596-4843-4e6e-8f94-0a32992fd6a5",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         },
@@ -278,15 +344,15 @@ namespace EBook.API.Migrations
                             Id = "59f65e3a-706c-4056-a0bc-c4597e08599e",
                             AccessFailedCount = 0,
                             AuthLevel = 1,
-                            ConcurrencyStamp = "08cfa71b-5331-4933-8c65-6127f76a4397",
+                            ConcurrencyStamp = "38d2894c-561e-41fd-ba1c-1b0c39d1c312",
                             Email = "user@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@EMAIL.COM",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFhRAHrdgrx5P9rH7JhNzYCFRRNwri00859eS9IUDBD2tocNQAh2t3uCq7BjJdEnBw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFQXudt3UYYuFsQ84fzX8pEsksCDjtDkFIf2L0+eppJ7ZPO5fnmSeYXyIY4LRc95bQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9365d065-fd83-49dd-86b0-9df3dc357a86",
+                            SecurityStamp = "efad9272-8fa5-4067-a54a-04bdddd30e97",
                             TwoFactorEnabled = false,
                             UserName = "User"
                         });
@@ -322,21 +388,21 @@ namespace EBook.API.Migrations
                         new
                         {
                             Id = "c32f66ed-c960-4cb7-a468-90662e1fb37a",
-                            ConcurrencyStamp = "ad7be0b9-7bb8-42b6-97e3-af1b17861800",
+                            ConcurrencyStamp = "6a62e6e6-a895-49aa-99a6-5d0d111b3433",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "ddc1ddb9-2495-40d6-b278-633bc6ca29c6",
-                            ConcurrencyStamp = "3c6713f4-2457-4f23-8ffa-22b69a35bba3",
+                            ConcurrencyStamp = "3f87ca5f-c95f-42a1-958f-f99459ffcb38",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29",
-                            ConcurrencyStamp = "1fa97b22-9477-4a4a-9446-e37846e1722d",
+                            ConcurrencyStamp = "e8861960-b964-4be4-af16-e1f6c8a2239e",
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         });

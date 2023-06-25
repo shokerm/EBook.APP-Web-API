@@ -28,6 +28,8 @@ namespace EBook.API.Data
             builder.ApplyConfiguration(new RoleConfugurations());
             builder.ApplyConfiguration(new UserRoleConfigurations());
             builder.ApplyConfiguration(new ItemConfigurations());
+            builder.ApplyConfiguration(new SalesConfigurations());
+
         }
     }
 }

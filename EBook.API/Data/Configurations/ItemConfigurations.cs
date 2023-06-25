@@ -11,7 +11,7 @@ namespace EBook.API.Data.Configurations
             builder.HasData(
                   new Item
                   {
-                     Id= 1,
+                    Id= 1,
                     ImageUrl= "../../../../assets//images/store-images/javascript-book.jpg",
                     ImageAlt= "javascript-book",
                     Name= "JavaScript",

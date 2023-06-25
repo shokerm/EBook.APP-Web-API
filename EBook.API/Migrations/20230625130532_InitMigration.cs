@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EBook.API.Migrations
 {
     /// <inheritdoc />
-    public partial class InitMig : Migration
+    public partial class InitMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -198,9 +198,9 @@ namespace EBook.API.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29", "1fa97b22-9477-4a4a-9446-e37846e1722d", "Visitor", "VISITOR" },
-                    { "c32f66ed-c960-4cb7-a468-90662e1fb37a", "ad7be0b9-7bb8-42b6-97e3-af1b17861800", "Admin", "ADMIN" },
-                    { "ddc1ddb9-2495-40d6-b278-633bc6ca29c6", "3c6713f4-2457-4f23-8ffa-22b69a35bba3", "User", "USER" }
+                    { "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29", "e8861960-b964-4be4-af16-e1f6c8a2239e", "Visitor", "VISITOR" },
+                    { "c32f66ed-c960-4cb7-a468-90662e1fb37a", "6a62e6e6-a895-49aa-99a6-5d0d111b3433", "Admin", "ADMIN" },
+                    { "ddc1ddb9-2495-40d6-b278-633bc6ca29c6", "3f87ca5f-c95f-42a1-958f-f99459ffcb38", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
@@ -208,8 +208,8 @@ namespace EBook.API.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "AuthLevel", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "59f65e3a-706c-4056-a0bc-c4597e08599e", 0, 1, "08cfa71b-5331-4933-8c65-6127f76a4397", "user@email.com", true, false, null, "USER@EMAIL.COM", "USER", "AQAAAAEAACcQAAAAEFhRAHrdgrx5P9rH7JhNzYCFRRNwri00859eS9IUDBD2tocNQAh2t3uCq7BjJdEnBw==", null, false, "9365d065-fd83-49dd-86b0-9df3dc357a86", false, "User" },
-                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, 2, "f9ccd315-7b3a-4783-8b9e-0f1c40aa4d99", "admin@email.com", true, false, null, "ADMIN@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEBgKk6dGrU/r9HJ8Omz9eg6wVxZe1i16y8/Z02/CGVBKTO1/OSEX/L7mBhmIr1ScZw==", null, false, "6ef1077a-0248-4b9c-8e20-ee8daac32b2d", false, "Admin" }
+                    { "59f65e3a-706c-4056-a0bc-c4597e08599e", 0, 1, "38d2894c-561e-41fd-ba1c-1b0c39d1c312", "user@email.com", true, false, null, "USER@EMAIL.COM", "USER", "AQAAAAEAACcQAAAAEFQXudt3UYYuFsQ84fzX8pEsksCDjtDkFIf2L0+eppJ7ZPO5fnmSeYXyIY4LRc95bQ==", null, false, "efad9272-8fa5-4067-a54a-04bdddd30e97", false, "User" },
+                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, 2, "d5aa61cf-548f-40fd-824e-56f106a1236e", "admin@email.com", true, false, null, "ADMIN@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEPTHY9KoJVs3RNReeSM7ESBLg4I1KOUWrRqoNm0b9NDkz3w2XvUQNF9Ui4eSwwd27A==", null, false, "6dfa6596-4843-4e6e-8f94-0a32992fd6a5", false, "Admin" }
                 });
 
             migrationBuilder.InsertData(
@@ -227,6 +227,21 @@ namespace EBook.API.Migrations
                     { 8, "Oracle Database", "../../../../assets//images/store-images/oracle-database-book.jpg", "favorite_border", "Oracle Database", 99.900000000000006, 1 },
                     { 9, "image-3", "../../../../assets//images/store-images/ios-developer-book.jpg", "favorite_border", "IOS Developer ", 149.90000000000001, 1 },
                     { 10, "Visual Basic .NET", "../../../../assets//images/store-images/visual-basic-dotnet-book.jpg", "favorite_border", "Visual Basic .NET", 49.899999999999999, 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Sales",
+                columns: new[] { "Id", "ItemId", "Quantity", "SaleDate", "UserId" },
+                values: new object[,]
+                {
+                    { 1, 1, 1, new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2835), "8e445865-a24d-4543-a6c6-9443d048cdb9" },
+                    { 2, 2, 2, new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2870), "8e445865-a24d-4543-a6c6-9443d048cdb9" },
+                    { 3, 3, 1, new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2873), "8e445865-a24d-4543-a6c6-9443d048cdb9" },
+                    { 4, 4, 3, new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2875), "8e445865-a24d-4543-a6c6-9443d048cdb9" },
+                    { 5, 5, 1, new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2877), "8e445865-a24d-4543-a6c6-9443d048cdb9" },
+                    { 6, 6, 1, new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2879), "59f65e3a-706c-4056-a0bc-c4597e08599e" },
+                    { 7, 7, 1, new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2881), "59f65e3a-706c-4056-a0bc-c4597e08599e" },
+                    { 8, 8, 1, new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2884), "59f65e3a-706c-4056-a0bc-c4597e08599e" }
                 });
 
             migrationBuilder.InsertData(
