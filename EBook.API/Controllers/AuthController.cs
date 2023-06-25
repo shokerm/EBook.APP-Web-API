@@ -267,6 +267,22 @@ namespace StoreApp.API.Controllers
                 _user.NormalizedUserName = userUpdateDTO.UserName.ToUpper();
                 _user.Email = userUpdateDTO.Email;
                 _user.NormalizedEmail = userUpdateDTO.Email.ToUpper();
+                _user.AuthLevel = userUpdateDTO.AuthLevel;
+                switch (userUpdateDTO.AuthLevel)
+                {
+                    case AuthLevels.Visitor:
+                        await _manager.AddToRoleAsync(_user, "Visitor");
+                        break;
+                    case AuthLevels.User:
+                        await _manager.AddToRoleAsync(_user, "User");
+                        break;
+                    case AuthLevels.Admin:
+                        await _manager.AddToRoleAsync(_user, "Admin");
+                        break;
+                    default:
+                        await _manager.AddToRoleAsync(_user, "User");
+                        break;
+                }
                 await _context.SaveChangesAsync();
 
                 return Ok(true);

@@ -13,5 +13,7 @@ namespace EBook.API.Data.DTOs.UserDTOs
 
         public string Password { get; set; }
 
+        public AuthLevels AuthLevel { get; set; }
+
     }
 }
