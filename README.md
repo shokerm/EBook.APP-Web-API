@@ -35,7 +35,7 @@ git clone https://github.com/shokerm/EBook.APP-Web-API.git
 ```
 - Open the Package Manager Console in Visual Studio, select the EBook.Data project, and run the following command to create the database schema:
 ```bash
-Update-Database
+update-database
 ```
 - Run the project in Visual Studio, The API server should now be running on your local machine & you should see Swagger Api Documentation.
 - User Registration: - User must register himself by filling some personal details.
