@@ -1,12 +1,11 @@
 ## EBook App Web API 
-- RESTful API to the user & products management.
+- RESTful API for user & products management.
 - CRUD oprations.
 
 ## Table of Contents
 
 - [Features](#features)
 - [Installation](#installation)
-- [Features](#features) 
 
 
 
@@ -39,8 +38,6 @@ git clone https://github.com/shokerm/EBook.APP-Web-API.git
 Update-Database
 ```
 - Run the project in Visual Studio, The API server should now be running on your local machine & you should see Swagger Api Documentation.
-
-
 - User Registration: - User must register himself by filling some personal details.
 - User Login: After registration user will enter Email and password for logging in order to get access to the system.
 - Personal: User can edit personal details, Admininstrator can edit/delete all users details.
