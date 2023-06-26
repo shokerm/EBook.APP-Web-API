@@ -4,10 +4,9 @@
 
 ## Table of Contents
 
-[Features](#features)
-[Installation](#installation)
-[Code Features](#code-features) 
-[Troubleshooting](#troubleshooting)
+- [Features](#features)
+- [Installation](#installation)
+- [Features](#features) 
 
 
 
@@ -41,7 +40,6 @@ Update-Database
 ```
 - Run the project in Visual Studio, The API server should now be running on your local machine & you should see Swagger Api Documentation.
 
-## Features
 
 - User Registration: - User must register himself by filling some personal details.
 - User Login: After registration user will enter Email and password for logging in order to get access to the system.
