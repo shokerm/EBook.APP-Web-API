@@ -9,6 +9,7 @@ using EBook.API.Data;
 using EBook.API.Data.Entities;
 using EBook.API.Data.DTOs;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EBook.API.Controllers
 {
@@ -29,6 +30,7 @@ namespace EBook.API.Controllers
 
         // GET= api/Sales
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<SaleItemDTO>>> GetSales()
         {
             if (_context.Sales == null)
@@ -56,6 +58,8 @@ namespace EBook.API.Controllers
 
         // GET= api/Sales/5
         [HttpGet("{id}")]
+        [Authorize]
+
         public async Task<ActionResult<Sale>> GetSale(int id)
         {
           if (_context.Sales == null)
@@ -75,6 +79,8 @@ namespace EBook.API.Controllers
         // PUT= api/Sales/5
         // To protect from overposting attacks, see https=//go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize]
+
         public async Task<IActionResult> PutSale(int id, Sale sale)
         {
             if (id != sale.Id)
@@ -106,6 +112,8 @@ namespace EBook.API.Controllers
         // POST= api/Sales
         // To protect from overposting attacks, see https=//go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize]
+
         public async Task<ActionResult<Sale>> PostSale(Sale sale)
         {
           if (_context.Sales == null)
@@ -121,6 +129,8 @@ namespace EBook.API.Controllers
 
         // DELETE= api/Sales/5
         [HttpDelete("{id}")]
+        [Authorize]
+
         public async Task<IActionResult> DeleteSale(int id)
         {
             if (_context.Sales == null)
