@@ -254,6 +254,7 @@ namespace StoreApp.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<ActionResult<bool>> UpdateUser(string Id, [FromBody]UserUpdateDTO userUpdateDTO)
         //[Authorize]
         {

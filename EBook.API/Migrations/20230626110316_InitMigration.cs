@@ -198,9 +198,9 @@ namespace EBook.API.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29", "e8861960-b964-4be4-af16-e1f6c8a2239e", "Visitor", "VISITOR" },
-                    { "c32f66ed-c960-4cb7-a468-90662e1fb37a", "6a62e6e6-a895-49aa-99a6-5d0d111b3433", "Admin", "ADMIN" },
-                    { "ddc1ddb9-2495-40d6-b278-633bc6ca29c6", "3f87ca5f-c95f-42a1-958f-f99459ffcb38", "User", "USER" }
+                    { "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29", "937b49eb-89ba-4e4a-991c-caadf265ec74", "Visitor", "VISITOR" },
+                    { "c32f66ed-c960-4cb7-a468-90662e1fb37a", "fb4ece07-77e7-47bc-8f9e-5b6c633a8464", "Admin", "ADMIN" },
+                    { "ddc1ddb9-2495-40d6-b278-633bc6ca29c6", "17405741-d98e-4c6a-a88e-b089a2c1b0c8", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
@@ -208,8 +208,9 @@ namespace EBook.API.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "AuthLevel", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "59f65e3a-706c-4056-a0bc-c4597e08599e", 0, 1, "38d2894c-561e-41fd-ba1c-1b0c39d1c312", "user@email.com", true, false, null, "USER@EMAIL.COM", "USER", "AQAAAAEAACcQAAAAEFQXudt3UYYuFsQ84fzX8pEsksCDjtDkFIf2L0+eppJ7ZPO5fnmSeYXyIY4LRc95bQ==", null, false, "efad9272-8fa5-4067-a54a-04bdddd30e97", false, "User" },
-                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, 2, "d5aa61cf-548f-40fd-824e-56f106a1236e", "admin@email.com", true, false, null, "ADMIN@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEPTHY9KoJVs3RNReeSM7ESBLg4I1KOUWrRqoNm0b9NDkz3w2XvUQNF9Ui4eSwwd27A==", null, false, "6dfa6596-4843-4e6e-8f94-0a32992fd6a5", false, "Admin" }
+                    { "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29", 0, 0, "7858c912-6940-41e0-af2a-3afb0ec77d59", "visitor@email.com", true, false, null, "VISITOR@EMAIL.COM", "VISITOR", "AQAAAAEAACcQAAAAEFDXy+m9p+oNQMF+G25e/0GWjZyLLdbnson4BTgEbyPQkZr7Jhu2eL0bhZHYOZWp4w==", null, false, "f4745675-23cb-4fc0-89f4-ffbf6a2d7dc9", false, "Visitor" },
+                    { "59f65e3a-706c-4056-a0bc-c4597e08599e", 0, 1, "d171c4bf-ff72-47c6-a51b-7cff4bc2cc78", "user@email.com", true, false, null, "USER@EMAIL.COM", "USER", "AQAAAAEAACcQAAAAEBdabI3bejQiHhm/D4gJT13+a2L1oM3pBNvk/BH7oxnZvAwMqcAGOYnKmB9xnRbbAg==", null, false, "b3272a3c-ea46-4dca-8b73-26082a61b705", false, "User" },
+                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, 2, "44f52ba1-70f2-442b-941b-3cf845f8d676", "admin@email.com", true, false, null, "ADMIN@EMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAEAUF7nxg5k5pvPeswpchJ8T7IGpsJVLXuo5de8nfKzsbdarmFMP0qXlABRD1CIeqww==", null, false, "1bbfd16f-1e4c-40d1-b203-d183b71431a0", false, "Admin" }
                 });
 
             migrationBuilder.InsertData(
@@ -234,14 +235,16 @@ namespace EBook.API.Migrations
                 columns: new[] { "Id", "ItemId", "Quantity", "SaleDate", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2835), "8e445865-a24d-4543-a6c6-9443d048cdb9" },
-                    { 2, 2, 2, new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2870), "8e445865-a24d-4543-a6c6-9443d048cdb9" },
-                    { 3, 3, 1, new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2873), "8e445865-a24d-4543-a6c6-9443d048cdb9" },
-                    { 4, 4, 3, new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2875), "8e445865-a24d-4543-a6c6-9443d048cdb9" },
-                    { 5, 5, 1, new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2877), "8e445865-a24d-4543-a6c6-9443d048cdb9" },
-                    { 6, 6, 1, new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2879), "59f65e3a-706c-4056-a0bc-c4597e08599e" },
-                    { 7, 7, 1, new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2881), "59f65e3a-706c-4056-a0bc-c4597e08599e" },
-                    { 8, 8, 1, new DateTime(2023, 6, 25, 16, 5, 32, 52, DateTimeKind.Local).AddTicks(2884), "59f65e3a-706c-4056-a0bc-c4597e08599e" }
+                    { 1, 1, 1, new DateTime(2023, 6, 26, 14, 3, 16, 629, DateTimeKind.Local).AddTicks(3842), "8e445865-a24d-4543-a6c6-9443d048cdb9" },
+                    { 2, 2, 2, new DateTime(2023, 6, 26, 14, 3, 16, 629, DateTimeKind.Local).AddTicks(3876), "8e445865-a24d-4543-a6c6-9443d048cdb9" },
+                    { 3, 3, 1, new DateTime(2023, 6, 26, 14, 3, 16, 629, DateTimeKind.Local).AddTicks(3879), "8e445865-a24d-4543-a6c6-9443d048cdb9" },
+                    { 4, 4, 3, new DateTime(2023, 6, 26, 14, 3, 16, 629, DateTimeKind.Local).AddTicks(3881), "8e445865-a24d-4543-a6c6-9443d048cdb9" },
+                    { 5, 5, 1, new DateTime(2023, 6, 26, 14, 3, 16, 629, DateTimeKind.Local).AddTicks(3883), "8e445865-a24d-4543-a6c6-9443d048cdb9" },
+                    { 6, 6, 1, new DateTime(2023, 6, 26, 14, 3, 16, 629, DateTimeKind.Local).AddTicks(3886), "59f65e3a-706c-4056-a0bc-c4597e08599e" },
+                    { 7, 7, 1, new DateTime(2023, 6, 26, 14, 3, 16, 629, DateTimeKind.Local).AddTicks(3888), "59f65e3a-706c-4056-a0bc-c4597e08599e" },
+                    { 8, 8, 1, new DateTime(2023, 6, 26, 14, 3, 16, 629, DateTimeKind.Local).AddTicks(3890), "59f65e3a-706c-4056-a0bc-c4597e08599e" },
+                    { 9, 9, 2, new DateTime(2023, 6, 26, 14, 3, 16, 629, DateTimeKind.Local).AddTicks(3893), "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29" },
+                    { 10, 10, 1, new DateTime(2023, 6, 26, 14, 3, 16, 629, DateTimeKind.Local).AddTicks(3895), "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29" }
                 });
 
             migrationBuilder.InsertData(

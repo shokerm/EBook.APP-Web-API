@@ -3,6 +3,7 @@ using EBook.API.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Security;
 
 
 namespace StoreApp.API.Data.Configurations
@@ -37,7 +38,20 @@ namespace StoreApp.API.Data.Configurations
                      AuthLevel = AuthLevels.User,
                      SecurityStamp = Guid.NewGuid().ToString("D")
 
+                 },
+                 new User
+                 {
+                     Id = "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29",
+                     UserName = "Visitor",
+                     NormalizedUserName = "VISITOR",
+                     Email = "visitor@email.com",
+                     NormalizedEmail = "VISITOR@EMAIL.COM",
+                     PasswordHash = hasher.HashPassword(null, "Cc@1324"),
+                     EmailConfirmed = true,
+                     AuthLevel = AuthLevels.Visitor,
+                     SecurityStamp = Guid.NewGuid().ToString("D")
                  }
+                 
              );
         }
     }

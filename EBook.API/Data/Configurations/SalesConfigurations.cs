@@ -73,7 +73,23 @@ namespace EBook.API.Data.Configurations
                     Quantity = 1,
                     UserId = "59f65e3a-706c-4056-a0bc-c4597e08599e",
                     SaleDate = DateTime.Now
-                }
+                },
+                 new Sale()
+                 {
+                     Id = 9,
+                     ItemId = 9,
+                     Quantity = 2,
+                     UserId = "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29",
+                     SaleDate = DateTime.Now
+                 },
+                  new Sale()
+                  {
+                      Id = 10,
+                      ItemId = 10,
+                      Quantity = 1,
+                      UserId = "4a8a52b2-8c3d-45d2-9fe5-ff01895c5c29",
+                      SaleDate = DateTime.Now
+                  }
                 );
         }
     }
