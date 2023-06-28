@@ -15,10 +15,9 @@ namespace EBook.API.Data
         public DbSet<Item> Items { get; set; }
         public DbSet<Sale> Sales { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder buillder)
+        public StoreDBContext(DbContextOptions options) : base(options)
         {
-            base.OnConfiguring(buillder);
-            buillder.UseSqlServer("Server=MOSHE-DELL-PC;Database=EBookDB;Trusted_Connection = True;TrustServerCertificate= True;");
+
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

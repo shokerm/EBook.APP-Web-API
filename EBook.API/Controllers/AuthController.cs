@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Azure.Identity;
 using EBook.API.Data;
 using EBook.API.Data.DTOs.UserDTOs;
 using EBook.API.Data.Entities;
@@ -28,7 +27,7 @@ namespace StoreApp.API.Controllers
         private readonly IMapper _mapper;
         private User? _user;
 
-        private const string _loginProvider = "StoreAPI";
+        private const string _loginProvider = "EBookStoreAPI";
         private const string _refreshToken = "RefreshToken";
 
         public AuthController(UserManager<User> manager, IConfiguration config, IMapper mapper, StoreDBContext context)

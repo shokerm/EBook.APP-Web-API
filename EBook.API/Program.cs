@@ -9,16 +9,19 @@ using StoreApp.API.Data.Configurations;
 using System.Text;
 
 
-var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContextFactory<StoreDBContext>(options =>
+string? GetConnectionString() => builder.Configuration.GetConnectionString("ConnectionString");
+builder.Services.AddDbContext<StoreDBContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlServer(GetConnectionString());
 });
 
 //allow specific origins
+
+string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 builder.Services.AddCors(x => x.AddPolicy(MyAllowSpecificOrigins,
     c => c.AllowAnyHeader().AllowAnyMethod().SetIsOriginAllowedToAllowWildcardSubdomains().
     WithOrigins("http://localhost:4200")
@@ -27,20 +30,20 @@ builder.Services.AddCors(x => x.AddPolicy(MyAllowSpecificOrigins,
 
 // Add services to the container.
 
-builder.Services.AddDbContext<StoreDBContext>();
-
 builder.Services.AddIdentityCore<User>()
     .AddRoles<IdentityRole>()
-    .AddTokenProvider<DataProtectorTokenProvider<User>>("StoreAPI")
+    .AddTokenProvider<DataProtectorTokenProvider<User>>("EBookStoreAPI")
     .AddEntityFrameworkStores<StoreDBContext>()
     .AddDefaultTokenProviders();
 
 
 // AutoMapper
+
 builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
 
 
 // Jwt Authentication
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme; // "Bearer"
@@ -63,21 +66,18 @@ builder.Services.AddAuthentication(options =>
 
 
 
-
+// Controllers
 
 builder.Services.AddControllers();
-
-
 
 builder.Services.AddDistributedMemoryCache();
 
 
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
-
     options.AddSecurityDefinition(JwtBearerDefaults.AuthenticationScheme, new OpenApiSecurityScheme
     {
         Description = @"JWT Authorization header using Bearer scheme.
@@ -106,6 +106,7 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
