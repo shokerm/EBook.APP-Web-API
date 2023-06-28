@@ -5,6 +5,7 @@
 ## Table of Contents
 
 - [Features](#features)
+- [API Access](#api-access)
 - [Installation](#installation)
 
 
@@ -16,6 +17,13 @@
 - Usage of AutoMapper & DTO's.
 - JWT Authentication & Identity Core.
 - Authorization: 3 user roles - ["Visitor", "User", "Admin"].
+
+## API Access
+| User              | Password                   | Access       |            
+| :---------------  | :------------------------- | :----------- | 
+| admin@email.com   | Aa@1234                    | Administrator|  
+| user@email.com    | Bb@4321                    | User         |  
+| visitor@email.com | Cc@1324                    | Visitor      |  
 
 ## Installation
 
