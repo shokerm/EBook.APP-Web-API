@@ -12,16 +12,15 @@ using System.Text;
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddDbContextFactory<StoreDBContext>(options =>
+string? GetConnectionString() => builder.Configuration.GetConnectionString("ConnectionString");
+builder.Services.AddDbContext<StoreDBContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlServer(GetConnectionString());
 });
 
 //allow specific origins
 builder.Services.AddCors(x => x.AddPolicy(MyAllowSpecificOrigins,
-    c => c.AllowAnyHeader().AllowAnyMethod().SetIsOriginAllowedToAllowWildcardSubdomains().
-    WithOrigins("http://localhost:4200")
+    c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()
     ));
 
 
@@ -31,7 +30,7 @@ builder.Services.AddDbContext<StoreDBContext>();
 
 builder.Services.AddIdentityCore<User>()
     .AddRoles<IdentityRole>()
-    .AddTokenProvider<DataProtectorTokenProvider<User>>("StoreAPI")
+    .AddTokenProvider<DataProtectorTokenProvider<User>>("EBookStoreAPI")
     .AddEntityFrameworkStores<StoreDBContext>()
     .AddDefaultTokenProviders();
 
@@ -54,10 +53,10 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,
         ValidateLifetime = true,
         ClockSkew = TimeSpan.Zero,
-        ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
-        ValidAudience = builder.Configuration["JwtSettings:Audience"],
+        ValidIssuer = "EBookStoreAPI",
+        ValidAudience = "EBookStoreAPIClient",
         IssuerSigningKey = new SymmetricSecurityKey
-            (Encoding.UTF8.GetBytes(builder.Configuration["Keys:Key"]))
+            (Encoding.UTF8.GetBytes("this is my amazing very Secret key for authentication"!))
     };
 });
 

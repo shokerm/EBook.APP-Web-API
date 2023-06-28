@@ -28,7 +28,7 @@ namespace StoreApp.API.Controllers
         private readonly IMapper _mapper;
         private User? _user;
 
-        private const string _loginProvider = "StoreAPI";
+        private const string _loginProvider = "EBookStoreAPI";
         private const string _refreshToken = "RefreshToken";
 
         public AuthController(UserManager<User> manager, IConfiguration config, IMapper mapper, StoreDBContext context)
@@ -176,7 +176,7 @@ namespace StoreApp.API.Controllers
         // Generate Token
         private async Task<string> GenerateToken()
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Keys:Key"]!));
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is my amazing very Secret key for authentication"!));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var roles = await _manager.GetRolesAsync(_user);
@@ -191,10 +191,10 @@ namespace StoreApp.API.Controllers
             }.Union(userClaims).Union(roleClaims);
 
             var token = new JwtSecurityToken(
-                issuer: _config["JwtSettings:Issuer"],
-                audience: _config["JwtSettings:Audience"],
+                issuer: "EBookStoreAPI",
+                audience: "EBookStoreAPIClient",
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(Convert.ToInt16(_config["JwtSettings:DurationInMinute"])),
+                expires: DateTime.Now.AddMinutes(60),
                 signingCredentials: credentials
                 );
 

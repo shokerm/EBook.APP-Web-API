@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/EBookAPI/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsConnectionString_59060A3A0D",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/ebookapidbdbserver/databases/EBook.APIdb",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:ConnectionString",
+      "dynamicId": null
+    }
+  }
+}
