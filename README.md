@@ -34,10 +34,10 @@ git clone https://github.com/shokerm/EBook.APP-Web-API.git
 }
 ```
 - Open the file secrets.json located in the EBook project folder and set the following key:
-- ```bash
-  "Keys": {
-    "Key": "this is my amazing very Secret key for authentication"
-  }
+```bash
+"Keys": {
+"Key": "this is my amazing very Secret key for authentication"
+}
 ```
 
 - Open the Package Manager Console in Visual Studio, select the EBook.Data project, and run the following command to create the database schema:
