@@ -50,8 +50,8 @@ namespace StoreApp.API.Controllers
             var user = _mapper.Map<User>(userDto);
         
             user.AuthLevel = AuthLevels.User;
-            var users = await _context.Users.FirstOrDefaultAsync(u => u.Email == userDto.Email);
-            if(users == null)
+            var isUserExists = await _context.Users.FirstOrDefaultAsync(u => u.Email == userDto.Email);
+            if(isUserExists == null)
             {
             var result = await _manager.CreateAsync(user, userDto.Password);
                 if (result.Succeeded)
