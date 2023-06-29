@@ -50,15 +50,25 @@ namespace StoreApp.API.Controllers
             var user = _mapper.Map<User>(userDto);
         
             user.AuthLevel = AuthLevels.User;
-            var result = await _manager.CreateAsync(user, userDto.Password);
-             
-
-            if (result.Succeeded)
+            var users = await _context.Users.FirstOrDefaultAsync(u => u.Email == userDto.Email);
+            if(users == null)
             {
-                await _manager.AddToRoleAsync(user, "User");
-                return Ok(true);
+            var result = await _manager.CreateAsync(user, userDto.Password);
+                if (result.Succeeded)
+                {
+                    await _manager.AddToRoleAsync(user, "User");
+                    return Ok(true);
+                }
+                return BadRequest(false);
+
             }
-            return BadRequest(false);
+            else
+            {
+                return BadRequest(false);
+            }
+
+
+
         }
 
         // POST: api/Auth/login
@@ -295,6 +305,29 @@ namespace StoreApp.API.Controllers
 
 
 
+        }
+
+
+        [HttpDelete]
+        [Route("deleteUser")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+
+        // Create Refresh Token
+        public async Task<ActionResult<bool>> DeleteUser(string Id)
+        {
+            var userToRemove =  await _manager.FindByIdAsync(Id);
+            if (userToRemove != null)
+            {
+                _context.Users.Remove(userToRemove);
+                await _context.SaveChangesAsync();
+                return Ok(true);
+            }
+            else
+            {
+                return BadRequest(false);
+            }
         }
 
 
