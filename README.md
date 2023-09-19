@@ -17,7 +17,7 @@
 - Usage of AutoMapper & DTO's.
 - JWT Authentication & Identity Core.
 - Authorization: 3 user roles - ["Visitor", "User", "Admin"].
-- Hosting: Azure - [EBook-Azure-Api](https://ebookapi20230627230225.azurewebsites.net/swagger).
+- Hosting: Azure - [EBook-Azure-Api](https://ebookapi20230627230225.azurewebsites.net/swagger) - <em><strong> temporarily disabled </strong></em>.
 
 
 
