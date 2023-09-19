@@ -1,4 +1,4 @@
-## EBook App Web API 
+## ![favicon-32x32](https://github.com/shokerm/EBook.APP-Web-API/assets/96984377/c0e6f574-5459-4839-a274-967ee5732692) EBook App Web API 
 - RESTful API for user & products management.
 - CRUD oprations.
 
