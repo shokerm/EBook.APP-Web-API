@@ -7,7 +7,7 @@
 - [Features](#features)
 - [API Access](#api-access)
 - [Installation](#installation)
-
+- [Usage](#usage)
 
 
 ## Features:
@@ -60,5 +60,13 @@ update-database
 - User Login: After registration user will enter Email and password for logging in order to get access to the system.
 - Personal: User can edit personal details, Admininstrator can edit/delete all users details.
 
+## Usage
+- To use the API, you can send HTTP requests to the API's endpoints using a tool such as Postman or swagger.
+- Authorization implemented in swagger, register, login & then copy the token from the response.
+- Click authorize & paste the token - now you are authorized to access routes that was protected (according your role's authorization level).
+- For logging out click "logout" in the authorization window.
   
+![response](https://github.com/shokerm/EBook.APP-Web-API/assets/96984377/ca742bc0-e9a4-4cab-a093-aed1a2c37949)
+![auth](https://github.com/shokerm/EBook.APP-Web-API/assets/96984377/4c618974-30bf-4d02-9b4f-0dee718e88cf)
+
 
