@@ -69,4 +69,4 @@ update-database
 ![response](https://github.com/shokerm/EBook.APP-Web-API/assets/96984377/ca742bc0-e9a4-4cab-a093-aed1a2c37949)
 ![auth](https://github.com/shokerm/EBook.APP-Web-API/assets/96984377/4c618974-30bf-4d02-9b4f-0dee718e88cf)
 
-
+- Alternatively, all operations can be performed using the client side - [frontend repository](https://github.com/shokerm/EBook-App-Project).
