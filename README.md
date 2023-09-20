@@ -1,4 +1,4 @@
-## ![favicon-32x32](https://github.com/shokerm/EBook.APP-Web-API/assets/96984377/c0e6f574-5459-4839-a274-967ee5732692) EBook App Web API 
+## ![favicon-32x32](https://github.com/shokerm/EBook.APP-Web-API/assets/96984377/c0e6f574-5459-4839-a274-967ee5732692) EBook App - Backend
 - RESTful API for user & products management.
 - CRUD oprations.
 
@@ -11,6 +11,7 @@
 
 
 ## Features:
+- Asp.Net Web API.
 - SQL Database with Entity Framework Code First.
 - Data is seeded on installation.
 - LINQ Queries.
