@@ -11,7 +11,7 @@
 
 
 ## Features:
-- Asp.Net Web API.
+- ASP.NET Core Web API.
 - SQL Database with Entity Framework Code First.
 - Data is seeded on installation.
 - LINQ Queries.
